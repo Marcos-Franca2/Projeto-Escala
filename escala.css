@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.cabecalho{
+    margin: 25px;
+    display: flex;
+    gap: 10px;
+}
+
+.horarios{
+    display: flex;
+    flex-direction: ROW;
+    margin: 15px;
+    gap: 7px;
+    font-weight: 700;
+}

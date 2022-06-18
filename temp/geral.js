@@ -1,5 +1,6 @@
 
 var listaMotorista = localStorage.getItem("listaMotorista")
+
 if(listaMotorista == undefined || listaMotorista == ""){
     listaMotorista = []
 }
@@ -22,6 +23,7 @@ function cadastrarMotorista(){
 }
 
 function listarMotoristas() {
+    listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula))
     let htmlLista = ''
     listaMotorista.forEach(element => {
         htmlLista += `
@@ -31,4 +33,5 @@ function listarMotoristas() {
         ` 
     }); 
     document.getElementById('listaMotorista').innerHTML = htmlLista
+
 }
