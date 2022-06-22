@@ -2,8 +2,10 @@
     box-sizing:border-box;
     margin: 0;
     padding: 0;
-}
+    font-family: Roboto, sans-serif; 
 
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
 .principal {
     display: flex;
     flex-direction: column;
@@ -51,4 +53,19 @@
 #btn-cadastro:hover{
     background-color: #80808081;
     
+}
+
+.lista{
+    
+    max-width: 50%;
+    border-radius: 20px;
+}
+
+
+
+.container {
+    border: 2px solid black;
+    font-size: 18px;
+    margin: 5px;
+    padding: 5px;
 }

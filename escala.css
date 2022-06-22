@@ -11,8 +11,40 @@
 
 .horarios{
     display: flex;
-    flex-direction: ROW;
+    flex-direction: column;
     margin: 15px;
     gap: 7px;
     font-weight: 700;
+    position: absolute;
+    left: 350px;
+}
+
+.naosei{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.horario2{
+    border: solid 2px;
+    padding: 10px;
+    
+}
+.horario h1{
+   
+}
+
+.naosei p  {
+    font-size: 23px;
+   
+}
+
+.lista {
+    font-size: 20px;
+    
+}
+.container{
+    background-color: rgba(0, 255, 255, 0.158);
+    border: solid 1px;
+    padding: 5px;
+    margin-left: 8px;
 }
