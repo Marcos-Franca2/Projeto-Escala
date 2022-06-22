@@ -8,6 +8,7 @@ else {
     listaMotorista = JSON.parse(listaMotorista)
 }
 listarMotoristas()
+listarMotoristas2()
 function cadastrarMotorista(){
     let nomeMotorista = document.getElementById('nome-motorista').value
     let matricula = document.getElementById('matricula').value
@@ -20,6 +21,7 @@ function cadastrarMotorista(){
     listaMotorista.push(objMotirista);
     localStorage.setItem("listaMotorista", JSON.stringify(listaMotorista))
     listarMotoristas()
+    listarMotoristas2()
 }
 
 function listarMotoristas() {
@@ -27,11 +29,26 @@ function listarMotoristas() {
     let htmlLista = ''
     listaMotorista.forEach(element => {
         htmlLista += `
-        <hr>
-        <div><b>matricula: </b>${element.matricula} </div>
-        <div><b>Nome: </b>${element.nomeMotorista} </div>
+        <div class = "container">
+            <div class = "linha" ><input type="radio" class="radio" name="matriculas"><b>Matricula: </b>${element.matricula} </div>
+            <div class = "namemot"><b>Nome: </b>${element.nomeMotorista} </div>
+        </div>
         ` 
     }); 
     document.getElementById('listaMotorista').innerHTML = htmlLista
+    
 
 }
+function listarMotoristas2() {
+    listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula))
+    let htmlLista2 = ''
+    listaMotorista.forEach(element => {
+        htmlLista2+= `
+        <div class = "container">
+            <div class = "linha" ><input type="radio" class="radio" name="matriculas"><b>Matricula: </b>${element.matricula} </div>
+            <div class = "namemot"><b>Nome: </b>${element.nomeMotorista} </div>
+        </div>
+        ` 
+    }); 
+    document.getElementById('listaMotorista2').innerHTML = htmlLista2
+}//<input type="checkbox" name="teste" id="teste"></input>
