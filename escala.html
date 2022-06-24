@@ -12,14 +12,26 @@
 <body>
     <div>
         <div class="cabecalho">
-            <p><input type="date" name="date" id="date"></p>
-            <a href="index.html"><button>Cadastro</button></a>
+            <div>
+                <p><input type="date" name="date" id="date"></p>
+                
+            </div>
+            <div class="horario">
+                <p>Adiocionar Horarios extraordinarios</p>
+                <input type="time" name="hora" id="hora">
+                <input type="text" name="tipoex" id="tipoex">
+                <input type="button" value="Incluir">
+            </div>
+            <div class="nav">
+                <a href="index.html"><button>Cadastro</button></a>
+            </div>
+            
 
         </div>
         <div class = "naosei">
             <div class="horario">
-                <p>Motorista nao escalados</p>
-                <div class="lista" id="listaMotorista2"> </div>
+                <h1>Motorista nao escalados</h1>
+                <div class="lista" id="listaMotorista"> </div>
             
 
             </div>
@@ -39,11 +51,9 @@
                 <p><input type="radio" class="radio" name="radio"> 18:30</input></p>
                 <p><input type="radio" class="radio" name="radio"> 21:00</input></p>
             </div>
+          
             <div class="horario">
-                <p>Adiocionar Horarios extraordinarios</p>
-            </div>
-            <div class="horario">
-                <p>Motoristas escaladas</p>
+                <h1>Motoristas Escalados</h1>
                 
             </div>
 
@@ -54,7 +64,8 @@
 
     </div>
 
-    <script src="./temp/geral.js"></script>
+    <script src="./js/geral.js"></script>
+    <script src="./js/escala.js"></script>
 </body>
 
 </html>
