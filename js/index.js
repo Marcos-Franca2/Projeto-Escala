@@ -28,3 +28,4 @@ function listarMotoristas() {
     }); 
     document.getElementById('listaMotorista').innerHTML = htmlLista
 }
+console.log(listaMotorista)

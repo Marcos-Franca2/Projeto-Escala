@@ -13,7 +13,7 @@ function listarMotoristasEscalas() {
         ` 
     }); 
     document.getElementById('listaMotorista').innerHTML = htmlLista
-    console.log(listaMotorista)
+
 
 }
 function escalar(){
