@@ -13,7 +13,7 @@
     <div>
         <div class="cabecalho">
             <div>
-                <p><input type="date" name="date" id="date"></p>
+                <p><input type="date" name="date" id="date" onkeypress="myFunction()"></p>
                 
             </div>
             <div class="horario">
@@ -38,19 +38,7 @@
             </div>
             <div class="horario2">
                 <h1>Horarios nao escalados</h1>
-                <p><input type="radio" class="radio" name="radio" value = "06:00">06:00</input></p>
-                <p><input type="radio" class="radio" name="radio" value = "07:30">07:30</input></p>
-                <p><input type="radio" class="radio" name="radio" value = "09:00">09:00</input></p>
-                <p><input type="radio" class="radio" name="radio" value = "11:30">11:30</input></p>
-                <p><input type="radio" class="radio" name="radio" value = "13:30">13:30</input></p>
-                <p><input type="radio" class="radio" name="radio"value = "13:45">13:45</input></p>
-                <p><input type="radio" class="radio" name="radio"value = "15:00">15:00</input></p>
-                <p><input type="radio" class="radio" name="radio"> 15:00</input></p>
-                <p><input type="radio" class="radio" name="radio"> 16:00</input></p>
-                <p><input type="radio" class="radio" name="radio"> 17:00</input></p>
-                <p><input type="radio" class="radio" name="radio"> 18:00</input></p>
-                <p><input type="radio" class="radio" name="radio"> 18:30</input></p>
-                <p><input type="radio" class="radio" name="radio"> 21:00</input></p>
+                <div id = horariosNEscalados></div>
             </div>
         <div>
             <input type="button" value="Escalar" onclick="escalar()">
