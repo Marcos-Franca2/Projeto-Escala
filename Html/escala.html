@@ -16,11 +16,11 @@
                 <p><input type="date" name="date" id="date" onkeypress="myFunction()"></p>
                 
             </div>
-            <div class="horario">
+            <div class="horarioex">
                 <p>Adiocionar Horarios extraordinarios</p>
                 <input type="time" name="hora" id="hora">
                 <input type="text" name="tipoex" id="tipoex">
-                <input type="button" value="Incluir">
+                <input type="button" value="Incluir" onclick = "escalarex()">
             </div>
             <div class="nav">
                 <a href="index.html"><button>Cadastrar Motorista</button></a>
@@ -39,6 +39,8 @@
             <div class="horario2">
                 <h1>Horarios nao escalados</h1>
                 <div id = horariosNEscalados></div>
+                <div> -------------------------------------------------------------------------</div> 
+                <div id = horariosExNEscalados> </div>
             </div>
         <div>
             <input type="button" value="Escalar" onclick="escalar()">

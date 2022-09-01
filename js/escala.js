@@ -1,5 +1,5 @@
 diaatual()
-function diaatual(){//fazer o input date mostrar a escala conforme o dia do computador
+function diaatual() {//fazer o input date mostrar a escala conforme o dia do computador
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
     var mes = String(data.getMonth() + 1).padStart(2, '0');
@@ -10,6 +10,7 @@ function diaatual(){//fazer o input date mostrar a escala conforme o dia do comp
     var date1 = new Date(`${date}`)
     date2 = date1.getDay()
     listarMotoristasEscalas()
+
 }
 function listarMotoristasEscalas() {
     listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados 
@@ -23,107 +24,90 @@ function listarMotoristasEscalas() {
         </div>
         `
         document.getElementById('listaMotorista').innerHTML = htmlLista
+        
     })
     let h1 = ''
     // prenchendo horarios de acordo com o dia da semana escolhido
     if (date2 === 0) {/*Segunda-feira*/
-        segundafeira.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        segundafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = segundafeira
     }
     if (date2 === 1) {/*Terca-feira*/
-        tercafeira.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        tercafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = tercafeira
     }
     if (date2 === 2) {/*Quarta-feira*/
-        quartafeira.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        quartafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = quartafeira
     }
     if (date2 === 3) {/*Quinta-feira*/
-        quintafeira.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        quintafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = quintafeira
     }
     if (date2 === 4) {/*Sexta-feira*/
-        sextafeira.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        sextafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = sextafeira
     }
     if (date2 === 5) {/*Sabado*/
-        sabado.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        sabado.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = sabado
     }
     if (date2 === 6) {/*Domingo*/
-        domingo.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
-        domingo.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        });
-
-        document.getElementById('horariosNEscalados').innerHTML = h1
+        window.dia = domingo
     }
     else {
         document.getElementById('horariosNEscalados').innerHTML = h1
     }
+
+    window.dia.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
+
+    window.dia.forEach(element => {
+        h1 += `<div class= "conteiner">
+    <input type="checkbox" class = "teste1" id=${element.hora}
+    <div class = "hora" ><b>Horario: </b>${element.hora} </div>
+    </div>
+    `
+    });
+
+    document.getElementById('horariosNEscalados').innerHTML = h1
 }
 
 
+function escalarex() {
+    var horaex = document.getElementById('hora').value
+    var tipoex = document.getElementById('tipoex').value
+    if (horaex == "" || tipoex == ""){
+        let horaExtra = ''
+        listahorariosex.forEach(element => {
+            horaExtra += `<div class= "conteiner">
+            <input type="checkbox" class = "horaex" id=${element.hora} name=${element.tipo}>
+            <div class = "horaex2" ><b>Horario: </b>${element.hora} <br>
+            <b> Tipo Escala: </b> ${element.tipo} </div>
+            </div>
+            `
+        })
+        document.getElementById('horariosExNEscalados').innerHTML = horaExtra
+    }
+
+   else{ listahorariosex.push({ hora: `${horaex}`, tipo: `${tipoex}` })
+    localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
+
+    let horaExtra = ''
+    listahorariosex.forEach(element => {
+        horaExtra += `<div class= "conteiner">
+        <input type="checkbox" class = "horaex" id=${element.hora} name=${element.tipo}>
+        <div class = "horaex2" ><b>Horario: </b>${element.hora} </div>
+        <div class = "tipoe" ><b> Tipo Escala: </b> ${element.tipo} </div>
+        </div>
+        `
+    })
+    document.getElementById('horariosExNEscalados').innerHTML = horaExtra
+   }
+
+}
+
 function escalar() {
+    let horariox = document.querySelectorAll(`input[class = "horaex"]:checked`); // localizar os horarios extras selecionados 
+    let horax = []
+    horariox.forEach((checkbox) => {
+        horax.push(checkbox.id +`  `+ checkbox.name);
+    })
+
+
     let radioselect = document.querySelectorAll(`input[class = "teste1"]:checked`); //localizar os horarios selecionados
     let radiobox = []
     radioselect.forEach((checkbox) => {
@@ -136,7 +120,17 @@ function escalar() {
         moto.push(checkbox.id + ` ` + checkbox.name);
     });
 
-    var horarioescalado = [(String(radiobox) + ' = ' + String(moto) + '<br>')]
+
+// definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
+    if (horax.length == 1) {
+        var horarioescalado = [(String(horax) + ' = ' + String(moto) + '<br>')]
+    }
+    else {
+        var horarioescalado = [(String(radiobox) + ' = ' + String(moto) + '<br>')]
+    }
+
+
+
 
     document.getElementById('horarioe').innerHTML += horarioescalado // Listando motoristas Escalados
 
@@ -145,7 +139,6 @@ function escalar() {
         idselect.push(checkbox.id);
     });
     var idclean = idselect.pop()
-    console.log(idclean);
     var index = listaMotorista.map(x => {
         return x.matricula;
     }).indexOf(idclean);
@@ -155,19 +148,34 @@ function escalar() {
 
 
     let horaselect = [] //remover horarios escalados 
-    radioselect.forEach((checkbox) => {
-        horaselect.push(checkbox.id);
-    });
-    var horaCerta = horaselect.pop()
-    var horarioselecionado = segundafeira.map(x => {
+    if(horax.length == 1){
+        horariox.forEach((checkbox) => {
+            horaselect.push(checkbox.id);
+        });
+        var horaCerta = horaselect.pop()
+    var horarioselecionado = listahorariosex.map(x => {
         return x.hora;
     }).indexOf(horaCerta);
-    console.log(horarioselecionado);
 
-    segundafeira.splice(horarioselecionado, 1);
+
+    listahorariosex.splice(horarioselecionado, 1);
+
+    }
+   else{ radioselect.forEach((checkbox) => {
+        horaselect.push(checkbox.id);
+    });
+
+    var horaCerta = horaselect.pop()
+    var horarioselecionado = window.dia.map(x => {
+        return x.hora;
+    }).indexOf(horaCerta);
+
+
+    window.dia.splice(horarioselecionado, 1);
+}
     // removido horarios escalados 
 
-
+    escalarex()
     listarMotoristasEscalas() //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
 
 }
@@ -175,6 +183,7 @@ function myFunction() { //Coletando dia da semana selecionado
     date = document.getElementById("date").value
     date1 = new Date(`${date}`)
     date2 = date1.getDay()
-    console.log(date2)
+
     listarMotoristasEscalas()
 }
+

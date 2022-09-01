@@ -2,92 +2,17 @@ function mostrarhorarios(dia) {
     window.diaselect = dia
 
     let h1 = `<div class = "diadasemana"> Escala de ${dia} </div>`
-    if (dia === "Segunda-feira") {
+    nomeDiaSelecionado = JSON.parse(localStorage.getItem(window.diaselect))
+    nomeDiaSelecionado.forEach(element => {
+        h1 += `<div class= "conteiner">
+    <input type="checkbox" class = "teste1" id=${element.hora}
+    <div class = "hora" ><b>Horario: </b>${element.hora} </div>
+    </div>
+    `
+    })
 
-        segundafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-    }
-    if (dia === "Terça-Feira") {
+    document.getElementById('padrao-dia').innerHTML = h1
 
-        tercafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-
-    }
-    if (dia === "Quarta-Feira") {
-
-        quartafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-
-    }
-    if (dia === "Quinta-Feira") {
-
-        quintafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-
-    }
-    if (dia === "Sexta-Feira") {
-
-        sextafeira.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-
-    }
-    if (dia === "Sabado") {
-
-        sabado.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-
-    }
-    if (dia === "Domingo") {
-
-        domingo.forEach(element => {
-            h1 += `<div class= "conteiner">
-        <input type="checkbox" class = "teste1" id=${element.hora}
-        <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-        </div>
-        `
-        })
-        document.getElementById('padrao-dia').innerHTML = h1
-
-    }
-    else {
-        document.getElementById('padrao-dia').innerHTML = h1
-    }
 }
 
 function cadatrarnovohorario() {
@@ -141,6 +66,10 @@ function apagarhorario(){
         checkbox = horaselect[i];
         if(checkbox.checked){
             checkbox.parentNode.remove(checkbox);
+            nomeDiaSelecionado = JSON.parse(localStorage.getItem(window.diaselect))
+            nomeDiaSelecionado = nomeDiaSelecionado.filter(x => x.hora != horaselect[i].id)
+            localStorage.setItem(window.diaselect, JSON.stringify(nomeDiaSelecionado))
+            
         }
     }
 }
