@@ -9,9 +9,20 @@ function diaatual() {//fazer o input date mostrar a escala conforme o dia do com
     var date = document.getElementById("date").value
     var date1 = new Date(`${date}`)
     date2 = date1.getDay()
+    console.log(date2)
     listarMotoristasEscalas()
 
 }
+
+function myFunction() { //Coletando dia da semana selecionado
+    date = document.getElementById("date").value
+    date1 = new Date(`${date}`)
+    date2 = date1.getDay()
+    console.log(date2)
+    listarMotoristasEscalas()
+}
+
+
 function listarMotoristasEscalas() {
     listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados 
     let htmlLista = ''
@@ -119,8 +130,7 @@ function escalar() {
     checkboxes.forEach((checkbox) => {
         moto.push(checkbox.id + ` ` + checkbox.name);
     });
-
-
+    console.log(moto)
 // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
     if (horax.length == 1) {
         var horarioescalado = [(String(horax) + ' = ' + String(moto) + '<br>')]
@@ -175,15 +185,23 @@ function escalar() {
 }
     // removido horarios escalados 
 
+
+    // remover horarios extras escalados 
+     let horaselect2 =document.querySelectorAll(`input[class = "horaex"]:checked`)
+  
+    for (var i = 0 ; i<horaselect2.length; i++){
+    checkbox2 = horaselect2[i]
+    if(checkbox2.checked){
+        checkbox2.parentNode.remove(checkbox2);
+        horaexselect = JSON.parse(localStorage.getItem("listahorariosex"))
+        horaexselect = horaexselect.filter(x => x.hora != horaselect2[i].id)
+        localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
+        
+    }
+}
+    
     escalarex()
     listarMotoristasEscalas() //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
 
-}
-function myFunction() { //Coletando dia da semana selecionado
-    date = document.getElementById("date").value
-    date1 = new Date(`${date}`)
-    date2 = date1.getDay()
-
-    listarMotoristasEscalas()
 }
 
