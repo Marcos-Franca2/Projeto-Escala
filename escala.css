@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin-left: 8px;
+    padding: 4px;
+    margin-right: 8px;
+    
+  
+}
+.cabecalho{
+    margin: 25px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+
+.horario{
+    
+    border: solid 1px;
+    
+  
+}
+
+.naosei{
+    display: flex;
+    justify-content: space-between;   
+}
+
+.horario2{
+    border: solid 2px;
+    padding: 10px;
+    
+}
+
+.naosei p  {
+    font-size: 23px;
+}
+
+.lista {
+    font-size: 20px;
+}
+
+.container{
+    border: solid 1px;
+    padding: 5px;
+    margin-left: 8px;
+    background-color: rgba(0, 255, 255, 0.158);
+}
