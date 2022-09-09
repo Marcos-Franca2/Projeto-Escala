@@ -1,4 +1,5 @@
 diaatual()
+escalarex()
 function diaatual() {//fazer o input date mostrar a escala conforme o dia do computador
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
@@ -9,7 +10,6 @@ function diaatual() {//fazer o input date mostrar a escala conforme o dia do com
     var date = document.getElementById("date").value
     var date1 = new Date(`${date}`)
     date2 = date1.getDay()
-    console.log(date2)
     listarMotoristasEscalas()
 
 }
@@ -35,7 +35,7 @@ function listarMotoristasEscalas() {
         </div>
         `
         document.getElementById('listaMotorista').innerHTML = htmlLista
-        
+
     })
     let h1 = ''
     // prenchendo horarios de acordo com o dia da semana escolhido
@@ -81,7 +81,7 @@ function listarMotoristasEscalas() {
 function escalarex() {
     var horaex = document.getElementById('hora').value
     var tipoex = document.getElementById('tipoex').value
-    if (horaex == "" || tipoex == ""){
+    if (horaex == "" || tipoex == "") {
         let horaExtra = ''
         listahorariosex.forEach(element => {
             horaExtra += `<div class= "conteiner">
@@ -94,28 +94,31 @@ function escalarex() {
         document.getElementById('horariosExNEscalados').innerHTML = horaExtra
     }
 
-   else{ listahorariosex.push({ hora: `${horaex}`, tipo: `${tipoex}` })
-    localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
+    else {
+        listahorariosex.push({ hora: `${horaex}`, tipo: `${tipoex}` })
+        localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
 
-    let horaExtra = ''
-    listahorariosex.forEach(element => {
-        horaExtra += `<div class= "conteiner">
+        let horaExtra = ''
+        listahorariosex.forEach(element => {
+            horaExtra += `<div class= "conteiner">
         <input type="checkbox" class = "horaex" id=${element.hora} name=${element.tipo}>
         <div class = "horaex2" ><b>Horario: </b>${element.hora} </div>
         <div class = "tipoe" ><b> Tipo Escala: </b> ${element.tipo} </div>
         </div>
         `
-    })
-    document.getElementById('horariosExNEscalados').innerHTML = horaExtra
-   }
+        })
+        document.getElementById('horariosExNEscalados').innerHTML = horaExtra
+    }
 
 }
 
 function escalar() {
     let horariox = document.querySelectorAll(`input[class = "horaex"]:checked`); // localizar os horarios extras selecionados 
     let horax = []
+    let tag = []
     horariox.forEach((checkbox) => {
-        horax.push(checkbox.id +`  `+ checkbox.name);
+        horax.push(checkbox.id);
+        tag.push(checkbox.name)
     })
 
 
@@ -128,12 +131,26 @@ function escalar() {
     let checkboxes = document.querySelectorAll(`input[class = "teste"]:checked`); // localizar os motoristas selecionados 
     let moto = []
     checkboxes.forEach((checkbox) => {
-        moto.push(checkbox.id + ` ` + checkbox.name);
+        moto.push(checkbox.name);
     });
     console.log(moto)
-// definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
+    // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
     if (horax.length == 1) {
-        var horarioescalado = [(String(horax) + ' = ' + String(moto) + '<br>')]
+        var horarioescalado = [(String(horax) + String(tag) + ' = ' + String(moto) + '<br>')]
+       
+       /* let HTMLescalados = ''
+        horarioescalado.forEach(element => {
+            HTMLescalados += `
+            <div class = "container">
+                <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
+                <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
+                <div class = "namemot"><b>Nome: </b>${element.nomeMotorista} </div>
+            </div>
+            `
+            document.getElementById('listaMotorista').innerHTML = htmlLista
+    
+        })
+        */
     }
     else {
         var horarioescalado = [(String(radiobox) + ' = ' + String(moto) + '<br>')]
@@ -158,50 +175,53 @@ function escalar() {
 
 
     let horaselect = [] //remover horarios escalados 
-    if(horax.length == 1){
+    if (horax.length == 1) {
         horariox.forEach((checkbox) => {
             horaselect.push(checkbox.id);
         });
         var horaCerta = horaselect.pop()
-    var horarioselecionado = listahorariosex.map(x => {
-        return x.hora;
-    }).indexOf(horaCerta);
+        var horarioselecionado = listahorariosex.map(x => {
+            return x.hora;
+        }).indexOf(horaCerta);
 
 
-    listahorariosex.splice(horarioselecionado, 1);
+        listahorariosex.splice(horarioselecionado, 1);
 
     }
-   else{ radioselect.forEach((checkbox) => {
-        horaselect.push(checkbox.id);
-    });
+    else {
+        radioselect.forEach((checkbox) => {
+            horaselect.push(checkbox.id);
+        });
 
-    var horaCerta = horaselect.pop()
-    var horarioselecionado = window.dia.map(x => {
-        return x.hora;
-    }).indexOf(horaCerta);
+        var horaCerta = horaselect.pop()
+        var horarioselecionado = window.dia.map(x => {
+            return x.hora;
+        }).indexOf(horaCerta);
 
 
-    window.dia.splice(horarioselecionado, 1);
-}
+        window.dia.splice(horarioselecionado, 1);
+    }
     // removido horarios escalados 
 
-
-    // remover horarios extras escalados 
-     let horaselect2 =document.querySelectorAll(`input[class = "horaex"]:checked`)
-  
-    for (var i = 0 ; i<horaselect2.length; i++){
-    checkbox2 = horaselect2[i]
-    if(checkbox2.checked){
-        checkbox2.parentNode.remove(checkbox2);
-        horaexselect = JSON.parse(localStorage.getItem("listahorariosex"))
-        horaexselect = horaexselect.filter(x => x.hora != horaselect2[i].id)
-        localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
-        
-    }
-}
-    
     escalarex()
     listarMotoristasEscalas() //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
+
+}
+
+function apagar() {
+    // remover horarios extras escalados do banco 
+    let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
+
+    for (var i = 0; i < horaselect2.length; i++) {
+        checkbox2 = horaselect2[i]
+        if (checkbox2.checked) {
+            checkbox2.parentNode.remove(checkbox2);
+            horaexselect = JSON.parse(localStorage.getItem("listahorariosex"))
+            horaexselect = horaexselect.filter(x => x.hora != horaselect2[i].id)
+            localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
+
+        }
+    }
 
 }
 
