@@ -13,15 +13,15 @@
     <div>
         <div class="cabecalho">
             <div>
-                <p><input type="date" name="date" id="date" onkeypress="myFunction()"></p>
+                <p><input type="date" name="date" id="date" onkeypress="myFunction()""></p>
                 
             </div>
-            <div class="horarioex">
+            <form class="horarioex">
                 <p>Adiocionar Horarios extraordinarios</p>
                 <input type="time" name="hora" id="hora">
                 <input type="text" name="tipoex" id="tipoex">
-                <input type="button" value="Incluir" onclick = "escalarex()">
-            </div>
+                <input type="reset" value="Incluir" onclick = "escalarex()">
+            </form>
             <div class="nav">
                 <a href="index.html"><button>Cadastrar Motorista</button></a>
                 <a href="cadastro-hora.html"><button>Cadastrar horario</button></a>
@@ -42,9 +42,10 @@
                 <div> -------------------------------------------------------------------------</div> 
                 <div id = horariosExNEscalados> </div>
             </div>
-        <div>
+        <form>
             <input type="button" value="Escalar" onclick="escalar()">
-        </div>
+            <input type="button" value="Remover" onclick="apagar()">
+        </form>
             <div class="horario">
                 <h1>Motoristas Escalados</h1>
                 <div id="horarioe"></div>
