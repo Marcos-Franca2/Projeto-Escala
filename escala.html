@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../temp/escala.css">
+    <title>Escala</title>
+</head>
+
+<body>
+    <div class="container-escala">
+        <div class="cabecalho">
+            <div>
+                <p><input type="date" name="date" id="date" onkeypress="myFunction()"></p>
+                
+            </div>
+            <form class="horarioex">
+                <p>Adicionar Horarios extraordinarios</p>
+                <input type="time" name="hora" id="hora">
+                <input type="text" name="tipoex" id="tipoex">
+                <input type="reset" value="Incluir" onclick = "escalarex()">
+            </form>
+            <div class="nav">
+                <a href="menu.html">Menu</a>
+            </div>
+        </div>
+        <div class = "naosei">
+            <div class="horario">
+                <h1>Motorista nao escalados</h1>
+                <div class="lista" id="listaMotorista"> </div>
+            </div>
+            <div class="horario2">
+                <h1>Horarios nao escalados</h1>
+                <div id = horariosNEscalados></div>
+                <div> -------------------------------------------------------------------------</div> 
+                <div id = horariosExNEscalados> </div>
+            </div>
+        <form>
+            <input type="button" value="Escalar" onclick="escalar()">
+            <input type="button" value="Remover" onclick="apagar()">
+        </form>
+            <div class="horario">
+                <h1>Motoristas Escalados</h1>
+                <div id="horarioe"></div>
+            </div>
+        </div>
+        <div class="horarios">
+        </div>
+
+        <div class="cards">
+            <div class="card card-1">
+              <div class="card__icon"><i class="fas fa-bolt"></i></div>
+              <p class="card__exit"><i class="fas fa-times"></i></p>
+              <h2 class="card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+              <p class="card__apply">
+                <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+              </p>
+            </div>
+            <div class="card card-2">
+              <div class="card__icon"><i class="fas fa-bolt"></i></div>
+              <p class="card__exit"><i class="fas fa-times"></i></p>
+              <h2 class="card__title">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+              <p class="card__apply">
+                <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+              </p>
+            </div>
+            <div class="card card-3">
+              <div class="card__icon"><i class="fas fa-bolt"></i></div>
+              <p class="card__exit"><i class="fas fa-times"></i></p>
+              <h2 class="card__title">Ut enim ad minim veniam.</h2>
+              <p class="card__apply">
+                <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+              </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/geral.js"></script>
+    <script src="../js/escala.js"></script>
+</body>
+
+</html>
+
+
