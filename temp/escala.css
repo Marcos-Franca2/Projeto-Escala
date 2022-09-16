@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-   
+    
 }
 
 body{
@@ -24,16 +24,21 @@ body{
 
 .horario{
     border: solid 1px;
+    background-color: rgba(43, 44, 44, 0.555);
+    padding: 15px;
+    color: white;
 }
 
 .naosei{
     display: flex;
     justify-content: space-between;   
+
 }
 .horario2{
     border: solid 2px;
     padding: 10px;
-    
+    background-color: rgba(43, 44, 44, 0.555);
+    color: white;
 }
 
 .naosei p  {
@@ -46,5 +51,6 @@ body{
     border: solid 1px;
     padding: 5px;
     margin-left: 8px;
-    background-color: rgba(0, 255, 255, 0.158);
+    
+
 }
