@@ -1,5 +1,6 @@
 diaatual()
 escalarex()
+horariosexstand = []
 function diaatual() {//fazer o input date mostrar a escala conforme o dia do computador
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
@@ -133,26 +134,36 @@ function escalar() {
     checkboxes.forEach((checkbox) => {
         moto.push(checkbox.name);
     });
-    
+if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length !=0){
     // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
     if (horax.length == 1) {
         var horarioescalado = []
-        
-        var horaextra = String(horax) 
-        var tipoextra= String(tag) 
-        var motoristaextra = String(moto) 
-        
+        var horaextra = String(horax)
+        var tipoextra = String(tag)
+        var motoristaextra = String(moto)
+
 
         horarioescalado += `<div class = "leo"> 
         <input type="checkbox" class = "horaescalad" id=${horaextra} name=${motoristaextra}>
         <label for=${horaextra}" class="btn">${horaextra} / ${tipoextra} = ${motoristaextra}</label>
 
         </div>`
-        
-     horariosexstand.push({ hora: `${horaextra}`, tipo: `${tipoextra}`, motorista : `${motoristaextra}` })
-     localStorage.setItem(`horariosexstand`, JSON.stringify(horariosexstand))
- 
-     
+
+        horariosexstand.push({ hora: `${horaextra}`, tipo: `${tipoextra}`, motorista: `${motoristaextra}` })
+        localStorage.setItem(`horariosexstand`, JSON.stringify(horariosexstand))
+
+        let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
+
+        for (var i = 0; i < horaselect2.length; i++) {
+            checkbox2 = horaselect2[i]
+            if (checkbox2.checked) {
+                checkbox2.parentNode.remove(checkbox2);
+                horaexselect = JSON.parse(localStorage.getItem("listahorariosex"))
+                horaexselect = horaexselect.filter(x => x.hora != horaselect2[i].id)
+                localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
+
+            }
+        }
 
 
 
@@ -221,13 +232,18 @@ function escalar() {
 
     escalarex()
     listarMotoristasEscalas() //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
+}
+    else {
+    return
+}
+
 
 }
 
 function apagar() {
     // remover horarios extras escalados do banco 
     let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
-    
+
     for (var i = 0; i < horaselect2.length; i++) {
         checkbox2 = horaselect2[i]
         if (checkbox2.checked) {
@@ -237,7 +253,17 @@ function apagar() {
             localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
 
         }
-    }   
+    }
+
+    let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`)
+    for (var i = 0; i < horaselect3.length; i++) {
+        checkbox3 = horaselect3[i]
+    }
+    var removido = checkbox3.id
+    var removido2 = checkbox3.name
+    const result = horariosexstand.find(({ hora }) => hora === `${removido}` && motorista === `${removido2}`)
+    listahorariosex.push({ hora: `${result.hora}`, tipo: `${result.tipo}`, motorista: `${result.motorista}` })
+    localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
 
 }
 
