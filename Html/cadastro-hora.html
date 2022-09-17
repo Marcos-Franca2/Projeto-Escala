@@ -8,15 +8,19 @@
     <title>Cadastro Horarios</title>
 </head>
 <body>
-    <h1>Padrões Escala Dia</h1>
-    <div>
+    <nav class="navbar">
+        <h1>Padrões Escala Dia</h1>
+        <a href="menu.html">Menu</a>
+    </nav>
+    
+    <div class = "inputs">
         <div id="cadastro-hora">
             <input type="time" name="nova-hora" id="nova-hora" >
             <input type="button" value="Cadastrar novo horario" onclick="cadatrarnovohorario()">
             <input type="button" value="Apagar horario" onclick="apagarhorario()">
         </div>
     </div>
-    <div>
+    <div class = "dias-da-semana">
         <input id = "segunda" type="button" value="Segunda-feira"onclick = "mostrarhorarios(this.value)">
         <input id = "terca"type="button" value="Terça-Feira"onclick = "mostrarhorarios(this.value)">
         <input id = "quarta"type="button" value="Quarta-Feira"onclick = "mostrarhorarios(this.value)">
@@ -32,7 +36,7 @@
         </div>
 
     </div>
-    <a href="menu.html">Menu</a>
+    
     
 </body>
 <script src="../js/cadastro-hora.js"></script>

@@ -1,0 +1,65 @@
+body {
+    background-image: url("../temp/ibagens/bgprincesa.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar a{
+    border-top: 1px solid #96d1f8;
+    background: #1eaef1;
+    padding: 8.5px 17px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.inputs input{
+    padding: 5px 10px;
+    margin: 3px;
+    cursor: pointer;
+    background: #016ABC;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(75, 67, 67);
+    text-shadow: none;
+}
+
+.dias-da-semana input{
+    padding: 5px 10px;
+    margin: 3px 1px;
+    cursor: pointer;
+    background: #016ABC;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(75, 67, 67);
+    text-shadow: none;
+}
+
+#padrao-dia{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid black;
+    margin: 15px;
+    align-items: center;
+    justify-content: center;
+    max-width: 60%;
+}

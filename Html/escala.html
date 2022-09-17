@@ -17,13 +17,14 @@
                 
             </div>
             <form class="horarioex">
-                <p>Adicionar Horarios extraordinarios</p>
-                <input type="time" name="hora" id="hora">
-                <input type="text" name="tipoex" id="tipoex">
-                <input type="reset" value="Incluir" onclick = "escalarex()">
+                <input class = "form-submit-button" type="time" name="hora" id="hora">
+                <input class = "input-text" type="text" name="tipoex" placeholder="Add Horarios Extraordinarios" id="tipoex">
+                <input class = "form-submit-button" type="reset" value="Incluir" onclick = "escalarex()">
+                <input class = "form-submit-button" type="button" value="Escalar" onclick="escalar()">
+                <input class = "form-submit-button" type="button" value="Remover" onclick="apagar()">
             </form>
             <div class="nav">
-                <a href="menu.html">Menu</a>
+                <a class="menu-button" href="menu.html">Menu</a>
             </div>
         </div>
         <div class = "naosei">
@@ -34,14 +35,13 @@
             <div class="horario2">
                 <h1>Horarios nao escalados</h1>
                 <div id = horariosNEscalados></div>
-                <div> <hr></hr>
-                    <hr></hr></div> 
+                <div> 
+                    <hr></hr>
+                    <hr></hr>
+                </div> 
                 <div id = horariosExNEscalados> </div>
             </div>
-        <form>
-            <input type="button" value="Escalar" onclick="escalar()">
-            <input type="button" value="Remover" onclick="apagar()">
-        </form>
+    
             <div class="horario">
                 <h1>Motoristas Escalados</h1>
                 <div id="horarioe"></div>
