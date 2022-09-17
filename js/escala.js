@@ -133,32 +133,43 @@ function escalar() {
     checkboxes.forEach((checkbox) => {
         moto.push(checkbox.name);
     });
-    console.log(moto)
+    
     // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
     if (horax.length == 1) {
         var horarioescalado = []
         
-        horax = String(horax) 
-        tag= String(tag) 
-        moto = String(moto) 
+        var horaextra = String(horax) 
+        var tipoextra= String(tag) 
+        var motoristaextra = String(moto) 
+        
 
         horarioescalado += `<div class = "leo"> 
-        <input type="checkbox" class = "horaescalad" id=${horax} name=${moto}>
-        <label for=${horax}" class="btn">${horax} / ${tag} = ${moto}</label>
+        <input type="checkbox" class = "horaescalad" id=${horaextra} name=${motoristaextra}>
+        <label for=${horaextra}" class="btn">${horaextra} / ${tipoextra} = ${motoristaextra}</label>
 
         </div>`
+        
+     horariosexstand.push({ hora: `${horaextra}`, tipo: `${tipoextra}`, motorista : `${motoristaextra}` })
+     localStorage.setItem(`horariosexstand`, JSON.stringify(horariosexstand))
+ 
+     
+
+
+
     }
     else {
         var horarioescalado = []
-        radiobox = String(radiobox)
-        moto = String(moto)
+        var horario = String(radiobox)
+        var motorista = String(moto)
 
         horarioescalado += `<div class = "leo"> 
-        <input type="checkbox" class = "horaescalad" id=${radiobox} name=${moto}>
-        <label for=${radiobox}" class="btn">${radiobox}  = ${moto}</label>
+        <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
+        <label for=${horario}" class="btn">${horario}  = ${motorista}</label>
 
 
      </div>`
+
+
     }
 
 
@@ -216,7 +227,7 @@ function escalar() {
 function apagar() {
     // remover horarios extras escalados do banco 
     let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
-
+    
     for (var i = 0; i < horaselect2.length; i++) {
         checkbox2 = horaselect2[i]
         if (checkbox2.checked) {
@@ -226,7 +237,7 @@ function apagar() {
             localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
 
         }
-    }
+    }   
 
 }
 
