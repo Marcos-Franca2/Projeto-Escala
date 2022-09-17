@@ -1,20 +1,21 @@
-*{
+* {
     box-sizing: border-box;
-    
+
 }
 
-body{
+body {
     background-image: url("../temp/ibagens/bgprincesa.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.container-escala{
+.container-escala {
     padding: 7px;
     margin: 20px;
 
 }
-.cabecalho{ 
+
+.cabecalho {
     margin: 25px;
     display: flex;
     gap: 10px;
@@ -22,35 +23,117 @@ body{
 }
 
 
-.horario{
+.horario {
     border: solid 1px;
     background-color: rgba(43, 44, 44, 0.555);
     padding: 15px;
     color: white;
 }
 
-.naosei{
+.naosei {
     display: flex;
-    justify-content: space-between;   
-
+    justify-content: space-between;
 }
-.horario2{
+
+.container:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+.test1:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+.test2:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+.horario2 {
     border: solid 2px;
     padding: 10px;
     background-color: rgba(43, 44, 44, 0.555);
     color: white;
 }
 
-.naosei p  {
+.naosei p {
     font-size: 23px;
 }
+
 .lista {
     font-size: 20px;
 }
-.container{
+
+.container {
     border: solid 1px;
     padding: 5px;
     margin-left: 8px;
-    
 
+
+}
+
+.test1 {
+    border: solid 1px;
+    padding: 5px;
+    margin-left: 8px;
+}
+
+.test2 {
+    border: solid 1px;
+    padding: 5px;
+    margin-left: 8px;
+
+}
+
+#horariosExNEscalados {
+    margin-top: 20px;
+
+}
+
+.leo {
+    border: solid 1px;
+    padding: 5px;
+    margin-left: 8px;
+}
+
+.leo:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+/*input[type=checkbox] {
+    display: none;
+}*/
+
+input[type=checkbox]+label.btn {
+    padding: 5px 10px;
+    margin: 5px 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=checkbox]+label.btn:hover {
+    box-shadow: 0 4px #ab3c3c;
+    top: 2px;
+}
+
+input[type=checkbox]:checked+label.btn {
+    box-shadow: 0 0 #ab3c3c;
+    top: 6px;
 }

@@ -67,7 +67,7 @@ function listarMotoristasEscalas() {
     window.dia.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
 
     window.dia.forEach(element => {
-        h1 += `<div class= "conteiner">
+        h1 += `<div class= "test1">
     <input type="checkbox" class = "teste1" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
     </div>
@@ -84,7 +84,7 @@ function escalarex() {
     if (horaex == "" || tipoex == "") {
         let horaExtra = ''
         listahorariosex.forEach(element => {
-            horaExtra += `<div class= "conteiner">
+            horaExtra += `<div class= "test2">
             <input type="checkbox" class = "horaex" id=${element.hora} name=${element.tipo}>
             <div class = "horaex2" ><b>Horario: </b>${element.hora} <br>
             <b> Tipo Escala: </b> ${element.tipo} </div>
@@ -100,7 +100,7 @@ function escalarex() {
 
         let horaExtra = ''
         listahorariosex.forEach(element => {
-            horaExtra += `<div class= "conteiner">
+            horaExtra += `<div class= "test2">
         <input type="checkbox" class = "horaex" id=${element.hora} name=${element.tipo}>
         <div class = "horaex2" ><b>Horario: </b>${element.hora} </div>
         <div class = "tipoe" ><b> Tipo Escala: </b> ${element.tipo} </div>
@@ -136,24 +136,29 @@ function escalar() {
     console.log(moto)
     // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
     if (horax.length == 1) {
-        var horarioescalado = [(String(horax) + String(tag) + ' = ' + String(moto) + '<br>')]
-       
-       /* let HTMLescalados = ''
-        horarioescalado.forEach(element => {
-            HTMLescalados += `
-            <div class = "container">
-                <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
-                <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
-                <div class = "namemot"><b>Nome: </b>${element.nomeMotorista} </div>
-            </div>
-            `
-            document.getElementById('listaMotorista').innerHTML = htmlLista
-    
-        })
-        */
+        var horarioescalado = []
+        
+        horax = String(horax) 
+        tag= String(tag) 
+        moto = String(moto) 
+
+        horarioescalado += `<div class = "leo"> 
+        <input type="checkbox" class = "horaescalad" id=${horax} name=${moto}>
+        <label for=${horax}" class="btn">${horax} / ${tag} = ${moto}</label>
+
+        </div>`
     }
     else {
-        var horarioescalado = [(String(radiobox) + ' = ' + String(moto) + '<br>')]
+        var horarioescalado = []
+        radiobox = String(radiobox)
+        moto = String(moto)
+
+        horarioescalado += `<div class = "leo"> 
+        <input type="checkbox" class = "horaescalad" id=${radiobox} name=${moto}>
+        <label for=${radiobox}" class="btn">${radiobox}  = ${moto}</label>
+
+
+     </div>`
     }
 
 
