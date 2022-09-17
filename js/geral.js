@@ -74,3 +74,13 @@ if(listahorariosex == undefined || listahorariosex == ""){
 else {
     listahorariosex = JSON.parse(listahorariosex)
 }
+
+
+var horariosexstand = localStorage.getItem("horariosexstand")
+
+if(horariosexstand == undefined || horariosexstand == ""){
+    horariosexstand = []
+}
+else {
+    horariosexstand = JSON.parse(horariosexstand)
+}
