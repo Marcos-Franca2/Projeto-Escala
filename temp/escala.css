@@ -1,28 +1,89 @@
 * {
     box-sizing: border-box;
-
 }
-
 body {
     background-image: url("../temp/ibagens/bgprincesa.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .container-escala {
     padding: 7px;
     margin: 20px;
 
 }
-
 .cabecalho {
-    margin: 25px;
+    margin: 15px;
     display: flex;
     gap: 10px;
     justify-content: space-between;
 }
+.horarioex{
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* DATE */
+
+input[type="date"]{
+  background-color: #1eaef1;
+  padding: 15px;
+  position: absolute;
+  font-family: "Roboto Mono",monospace;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
 
 
+
+/* BUTTONS */
+.menu-button{
+    border-top: 1px solid #96d1f8;
+    background: #1eaef1;
+    padding: 8.5px 17px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.input-text{
+  padding: 5px 10px;
+  width: 65%;
+}
+
+.form-submit-button {
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  background: #0dda8b;
+  color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(75, 67, 67);
+  text-shadow: none;
+  }
+  .form-submit-button:hover {
+  background: #016ABC;
+  color: #fff;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px rgb(75, 67, 67);
+  text-shadow: none;
+  }
+.nav{
+  margin-top: 15px;
+}
 .horario {
     border: solid 1px;
     background-color: rgba(43, 44, 44, 0.555);

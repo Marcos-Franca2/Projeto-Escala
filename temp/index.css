@@ -7,6 +7,11 @@
     font-family: Roboto, sans-serif; 
     
 }
+body {
+    background-image: url("../temp/ibagens/bgprincesa.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 nav{
     display: flex;
@@ -15,10 +20,6 @@ nav{
     justify-content: space-between;
     margin: 10px;
     text-decoration: none;
-}
-
-nav .menu{
-    
 }
 
 .principal {
@@ -66,7 +67,7 @@ nav .menu{
 }
 
 #btn-cadastro:hover{
-    background-color: #80808081;
+    background-color: #96d1f8;
     
 }
 
@@ -75,10 +76,30 @@ nav .menu{
     max-width: 50%;
     border-radius: 20px;
 }
-
-
+.menu{
+    margin: 10px 3px;
+}
+.menu a{
+    border-top: 1px solid #96d1f8;
+    background: #1eaef1;
+    padding: 8.5px 17px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
 
 .container {
+    background-color: rgba(255, 255, 255, 0.527);
+    border-radius: 10px;
     border: 2px solid black;
     font-size: 18px;
     margin: 5px;
