@@ -83,4 +83,25 @@ if(horariosexstand == undefined || horariosexstand == ""){
 }
 else {
     horariosexstand = JSON.parse(horariosexstand)
+
+}
+
+
+var horariosstand = localStorage.getItem("horariosstand")
+
+if(horariosstand == undefined || horariosstand == ""){
+    horariosstand = []
+}
+else {
+    horariosstand = JSON.parse(horariosstand)
+    
+}
+var diafeito = localStorage.getItem("diafeito")
+
+if(diafeito == undefined || diafeito == ""){
+    diafeito = []
+}
+else {
+    diafeito = JSON.parse(diafeito)
+    
 }

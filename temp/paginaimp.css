@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+.horario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    padding: 19px;
+    border: solid 2px;
+    align-items: center;
+}
+
+.main {
+    position: relative;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px solid;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.horario1{
+    
+}

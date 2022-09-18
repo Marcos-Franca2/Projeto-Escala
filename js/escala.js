@@ -179,7 +179,8 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
 
 
      </div>`
-
+     horariosstand.push({ hora: `${horario}`, motorista: `${motorista}` })
+     localStorage.setItem(`horariosstand`, JSON.stringify(horariosstand))
 
     }
 
@@ -258,12 +259,21 @@ function apagar() {
     let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`)
     for (var i = 0; i < horaselect3.length; i++) {
         checkbox3 = horaselect3[i]
+        console.log(checkbox3)
     }
     var removido = checkbox3.id
     var removido2 = checkbox3.name
-    const result = horariosexstand.find(({ hora }) => hora === `${removido}` && motorista === `${removido2}`)
+    console.log(removido2)
+    const result = horariosexstand.find(({ hora , motorista }) => hora === `${removido}` && motorista === `${removido2}`)
     listahorariosex.push({ hora: `${result.hora}`, tipo: `${result.tipo}`, motorista: `${result.motorista}` })
     localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
 
+
 }
 
+function finalizar(){
+    var dataselect = document.getElementById("date").value
+    var datacorreta = dataselect.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+    diafeito.push({data : `${datacorreta}`})
+    localStorage.setItem(`diafeito`, JSON.stringify(diafeito))
+}
