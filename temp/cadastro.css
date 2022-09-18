@@ -55,11 +55,12 @@ body {
 #padrao-dia{
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.37) ;
     padding: 15px;
     border: 1px solid black;
     margin: 15px;
     align-items: center;
     justify-content: center;
-    max-width: 60%;
+    max-width: 5%;
+  
 }

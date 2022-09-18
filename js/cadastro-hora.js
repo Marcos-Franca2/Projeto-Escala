@@ -1,7 +1,7 @@
 function mostrarhorarios(dia) {
     window.diaselect = dia
 
-    let h1 = `<div class = "diadasemana"> Escala de ${dia} </div>`
+    let h1 = `<div class = "diadasemana"> <h3><b>Escala de ${dia}</b></h3> </div>`
     nomeDiaSelecionado = JSON.parse(localStorage.getItem(window.diaselect))
     nomeDiaSelecionado.forEach(element => {
         h1 += `<div class= "test1">
