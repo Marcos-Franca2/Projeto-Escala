@@ -42,24 +42,31 @@ function listarMotoristasEscalas() {
     // prenchendo horarios de acordo com o dia da semana escolhido
     if (date2 === 0) {/*Segunda-feira*/
         window.dia = segundafeira
+        diadasemana = "SEGUNDA-FEIRA"
     }
     if (date2 === 1) {/*Terca-feira*/
         window.dia = tercafeira
+        diadasemana = "TERÇA-FEIRA"
     }
     if (date2 === 2) {/*Quarta-feira*/
         window.dia = quartafeira
+        diadasemana = "QUARTA-FEIRA"
     }
     if (date2 === 3) {/*Quinta-feira*/
         window.dia = quintafeira
+        diadasemana = "QUINTA-FEIRA"
     }
     if (date2 === 4) {/*Sexta-feira*/
         window.dia = sextafeira
+        diadasemana = "SEXTA-FEIRA"
     }
     if (date2 === 5) {/*Sabado*/
         window.dia = sabado
+        diadasemana = "SABADO"
     }
     if (date2 === 6) {/*Domingo*/
         window.dia = domingo
+        diadasemana = "DOMINGO"
     }
     else {
         document.getElementById('horariosNEscalados').innerHTML = h1
@@ -179,7 +186,7 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
 
 
      </div>`
-     horariosstand.push({ hora: `${horario}`, motorista: `${motorista}` })
+     horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana : `${diadasemana}` })
      localStorage.setItem(`horariosstand`, JSON.stringify(horariosstand))
 
     }

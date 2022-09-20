@@ -1,29 +1,53 @@
-* {
-    box-sizing: border-box;
+html, body{
+    font-family:sans-serif;
+    font-size:11px;
 }
-.horario{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: relative;
-    padding: 19px;
-    border: solid 2px;
+form{
+    display:block;
+    padding:10sx;
+    border:1px solid #CCC;
+    border-radius:3px;
+}
+table{
+    width: 50%;
+    border-collapse: collapse;
+}
+table a {
+    display:block;
+    padding:4px;
+}
+th, td{
+    border:1px solid #ccc;
+}
+td{
+    
+    padding:0;
+    height:10px;
+    line-height:10px;
+}
+td input{
+    display:block;
+    width:100%;
+    margin:0;
+    padding:0;
+    border:0 none;
+    line-height:10x;
+    height:20px;
+    text-align: center;
+    align-items: center;
+}
+#ta1{
+    width: 20%;
+    text-align: center;
     align-items: center;
 }
 
-.main {
-    position: relative;
+#ta2{
+    padding: 0 0 0 5px;
 }
 
-.main{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border: 3px solid;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-.horario1{
+.t1{    
+    position:absolute ;
+    margin-left: 95%;
     
 }

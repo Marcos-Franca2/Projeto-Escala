@@ -105,3 +105,5 @@ else {
     diafeito = JSON.parse(diafeito)
     
 }
+
+window.diadasemana = " "
