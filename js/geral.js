@@ -1,4 +1,5 @@
-
+// nesse JS serve exclusivamente para criacao de variaveis que sao ultilizadas em mais de um JS
+// basicamente armazenando todas nossa key dos local storages 
 var segundafeira = localStorage.getItem("Segunda-feira")
 if(segundafeira == undefined || segundafeira == ""){
     segundafeira = []

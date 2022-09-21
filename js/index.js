@@ -1,7 +1,7 @@
 
 listarMotoristas()
 
-function cadastrarMotorista(){
+function cadastrarMotorista(){ // funcao criada para o cadastro do novos motoristas 
     let nomeMotorista = document.getElementById('nome-motorista').value
     let matricula = document.getElementById('matricula').value
     let existe = listaMotorista.filter(x => x.matricula == matricula)
@@ -15,7 +15,7 @@ function cadastrarMotorista(){
     listarMotoristas()  
 }
 
-function listarMotoristas() {
+function listarMotoristas() { // funcao que exibe os motoristas na tela do usuario
     listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula))
     let htmlLista = ''
     listaMotorista.forEach(element => {

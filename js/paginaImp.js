@@ -1,11 +1,10 @@
 organizar()
-
+// pagina criada para organizar os horarios e motoristas em como se fosse uma planilha Excel (modelo fidelizado na empresa onde sera ultilizado)
 function organizar() {
     let dia = ``
     diafeito.forEach(element => {
         dia = `${element.data}`
         document.getElementById("textdata").innerHTML = ` <div class = dia><p> ${dia} </p></div> `
-        document.getElementById("diadasemana").innerHTML = ` <div class = dia><p> ${diadasemana} </p></div> `
     })
 
     let diadasemana1 = ``
@@ -15,14 +14,14 @@ function organizar() {
     })
 
     let horarios = ''
-    horariosstand.sort(function (a, b) {
+    horariosstand.sort(function (a, b) { // oraganizando por criterio de horarios 
         if (a.hora > b.hora) {
           return 1;
         }
         if (a.hora < b.hora) {
           return -1;
         }
-        // a must be equal to b
+
         return 0;
       });
 
@@ -56,7 +55,6 @@ function organizar() {
         if (a.hora < b.hora) {
           return -1;
         }
-        // a must be equal to b
         return 0;
       });
       
@@ -84,4 +82,4 @@ function organizar() {
 
 
 }
-/*        <input type = "text" placeholder = "${element.motorista} ">  </input> */
+

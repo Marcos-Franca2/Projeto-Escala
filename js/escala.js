@@ -25,7 +25,7 @@ function myFunction() { //Coletando dia da semana selecionado
 
 
 function listarMotoristasEscalas() {
-    listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados 
+    listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados os organizando por matricula
     let htmlLista = ''
     listaMotorista.forEach(element => {
         htmlLista += `
@@ -39,7 +39,8 @@ function listarMotoristasEscalas() {
 
     })
     let h1 = ''
-    // prenchendo horarios de acordo com o dia da semana escolhido
+    // prenchendo horarios de acordo com o dia da semana escolhido e armazanando a string em um scopo global para que possamos usar ela novamente na proxima tela
+    // variavel date2 recebe um valor de 0 a 6 coletados atraves da funcao My function para mostrar o dia escolhido e o armazenar em uma variavel de nome unico para ser mais facil manusea-la
     if (date2 === 0) {/*Segunda-feira*/
         window.dia = segundafeira
         diadasemana = "SEGUNDA-FEIRA"
@@ -74,7 +75,7 @@ function listarMotoristasEscalas() {
 
     window.dia.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
 
-    window.dia.forEach(element => {
+    window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
         h1 += `<div class= "test1">
     <input type="checkbox" class = "teste1" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
@@ -86,7 +87,8 @@ function listarMotoristasEscalas() {
 }
 
 
-function escalarex() {
+function escalarex() { // funcao acionado atravez do botao escalar onde o objetivo dela e coletar as checkbox selecionadas dos horarios EXTRA adicionados manualmente para jogar em uma nova key do local storage 
+    // existem duas keys novas que separam os horarios padroes dos dias que sao adicionados nao tela de cadastro de horas e uma para os horarios EXTRAS adicionados manualmente na hora de fazer a escala
     var horaex = document.getElementById('hora').value
     var tipoex = document.getElementById('tipoex').value
     if (horaex == "" || tipoex == "") {
@@ -120,7 +122,7 @@ function escalarex() {
 
 }
 
-function escalar() {
+function escalar() {  //funcao que coleta os dados de todas as checkbox selecionados sendo elas de horarios EXTRAS ou horarios Padroes
     let horariox = document.querySelectorAll(`input[class = "horaex"]:checked`); // localizar os horarios extras selecionados 
     let horax = []
     let tag = []
@@ -141,7 +143,7 @@ function escalar() {
     checkboxes.forEach((checkbox) => {
         moto.push(checkbox.name);
     });
-if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length !=0){
+if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length !=0){ // nao avancar caso o usuario nao tenha selecionado um horario e um motorista 
     // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
     if (horax.length == 1) {
         var horarioescalado = []
@@ -161,7 +163,7 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
 
         let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
 
-        for (var i = 0; i < horaselect2.length; i++) {
+        for (var i = 0; i < horaselect2.length; i++) { // quando um horario e selecionado ele e temporariamente apagado da tela 
             checkbox2 = horaselect2[i]
             if (checkbox2.checked) {
                 checkbox2.parentNode.remove(checkbox2);
@@ -249,7 +251,7 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
 }
 
 function apagar() {
-    // remover horarios extras escalados do banco 
+    // remover horarios extras escalados do local storage 
     let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
 
     for (var i = 0; i < horaselect2.length; i++) {
@@ -263,7 +265,7 @@ function apagar() {
         }
     }
 
-    let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`)
+    let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`) // caso o usuario se arrependa d ter escalado o horario EXTRA ele pode simplesmente apaga lo e fazelos retornar ao local storage
     for (var i = 0; i < horaselect3.length; i++) {
         checkbox3 = horaselect3[i]
         console.log(checkbox3)
@@ -278,7 +280,7 @@ function apagar() {
 
 }
 
-function finalizar(){
+function finalizar(){ // funcao criada para armazenar a string que dia o dia que foi feita a escala para usarmos na tela de impressao 
     var dataselect = document.getElementById("date").value
     var datacorreta = dataselect.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
     diafeito.push({data : `${datacorreta}`})
@@ -288,7 +290,7 @@ function finalizar(){
 
 }
 
-function deletar(){
+function deletar(){ // funcao que apaga as key do local storage para podemos recomecar uma nova escala e ela nao ficar somando com a antiga 
     localStorage.removeItem('horariosexstand')
     localStorage.removeItem('horariosstand')
 }
