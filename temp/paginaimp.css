@@ -45,17 +45,54 @@ td input{
     padding: 0 0 0 5px;
 }
 
+<<<<<<< HEAD
 .t1{    
     position:absolute ;
     margin-left: 95%;
     
 }
 
+=======
+
+tfoot{
+    height: 20px;
+}
+>>>>>>> 3df306d27caaa54ac6ef407a628d246b66aa2242
 .spaceWhite{
     height: 20px;
 
 }
+<<<<<<< HEAD
 @media print { 
     #noprint { display:none; } 
 
     }
+=======
+
+.t1 a{
+    margin-top: 30px;
+    border-top: 1px solid #96d1f8;
+    background: #1eaef1;
+    padding: 8.5px 17px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+}
+
+footer{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+>>>>>>> 3df306d27caaa54ac6ef407a628d246b66aa2242
