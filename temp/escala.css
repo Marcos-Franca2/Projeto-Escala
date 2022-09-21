@@ -36,10 +36,32 @@ input[type="date"]{
   outline: none;
   border-radius: 5px;
 }
-
+.nav{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
 
 /* BUTTONS */
+
+.imp-button{
+    border-top: 1px solid #96d1f8;
+    background: #1eaef1;
+    padding: 8.5px 17px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
 .menu-button{
     border-top: 1px solid #96d1f8;
     background: #1eaef1;
@@ -56,6 +78,7 @@ input[type="date"]{
     font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
+    text-align: center;
 }
 .input-text{
   padding: 5px 10px;
@@ -163,9 +186,6 @@ input[type="date"]{
     transform: scale(1.01);
 }
 
-/*input[type=checkbox] {
-    display: none;
-}*/
 
 input[type=checkbox]+label.btn {
     padding: 5px 10px;
