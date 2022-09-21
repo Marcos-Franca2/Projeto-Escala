@@ -180,7 +180,7 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
         var horario = String(radiobox)
         var motorista = String(moto)
 
-        horarioescalado += `<div class = "leo"> 
+        horarioescalado += `<div class = "escalados"> 
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
         <label for=${horario}" class="btn">${horario}  = ${motorista}</label>
 
