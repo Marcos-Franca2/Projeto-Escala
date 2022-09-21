@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url("../temp/ibagens/bgprincesa.png");
+    background-image: url("../temp/imagens/bgprincesa.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -48,11 +48,12 @@ input[type="date"]{
     cursor: pointer;
     border-top: 1px solid #96d1f8;
     border: 0.5px solid #0000;
-    background: #1eaef1;
+    background: #f02929;
     padding: 8.5px 17px;
     border-radius: 9px;
     color: #000000;
     font-size: 15px;
+    font-weight: 700;
     font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
