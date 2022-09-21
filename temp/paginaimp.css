@@ -45,29 +45,24 @@ td input{
     padding: 0 0 0 5px;
 }
 
-<<<<<<< HEAD
 .t1{    
     position:absolute ;
     margin-left: 95%;
     
 }
 
-=======
 
 tfoot{
     height: 20px;
 }
->>>>>>> 3df306d27caaa54ac6ef407a628d246b66aa2242
 .spaceWhite{
     height: 20px;
 
 }
-<<<<<<< HEAD
 @media print { 
     #noprint { display:none; } 
 
     }
-=======
 
 .t1 a{
     margin-top: 30px;
@@ -95,4 +90,3 @@ footer{
     flex-direction: row;
     justify-content: flex-end;
 }
->>>>>>> 3df306d27caaa54ac6ef407a628d246b66aa2242
