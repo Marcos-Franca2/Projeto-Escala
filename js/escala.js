@@ -283,4 +283,7 @@ function finalizar(){
     var datacorreta = dataselect.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
     diafeito.push({data : `${datacorreta}`})
     localStorage.setItem(`diafeito`, JSON.stringify(diafeito))
+
+
+
 }

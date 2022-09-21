@@ -15,6 +15,18 @@ function organizar() {
     })
 
     let horarios = ''
+    horariosstand.sort(function (a, b) {
+        if (a.hora > b.hora) {
+          return 1;
+        }
+        if (a.hora < b.hora) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+
+      
     horariosstand.forEach(element => 
     {
         horarios += `<tr>
@@ -37,7 +49,17 @@ function organizar() {
     });
     document.getElementById("hora").innerHTML = horarios
 
-
+    horariosexstand.sort(function (a, b) {
+        if (a.hora > b.hora) {
+          return 1;
+        }
+        if (a.hora < b.hora) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+      
     let horariosEx = ''
     horariosexstand.forEach(element => {
         horariosEx += `<tr>
