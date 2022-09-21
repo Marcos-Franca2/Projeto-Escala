@@ -13,7 +13,7 @@
     <div class="container-escala">
         <div class="cabecalho">
             <div>
-                <p><input type="date" name="date" id="date" onkeypress="myFunction()"></p>
+                <p><input type="date" name="date" id="date" onchange="myFunction()"></p>
                 
             </div>
             <form class="horarioex">
@@ -22,10 +22,12 @@
                 <input class = "form-submit-button" type="reset" value="Incluir" onclick = "escalarex()">
                 <input class = "form-submit-button" type="button" value="Escalar" onclick="escalar()">
                 <input class = "form-submit-button" type="button" value="Remover" onclick="apagar()">
+
             </form>
             <div class="nav">
                 <a class="menu-button" href="menu.html">Menu</a>
                 <a class="imp-button" href="paginaImp.html" onclick="finalizar()">Terminar </a>
+                <button type= "button" class="btn-del" title="delete" onclick="deletar()">Recomeçar Escala</button>
             </div>
         </div>
         <div class = "container-horario">

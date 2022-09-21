@@ -1,4 +1,4 @@
-diaatual()
+
 escalarex()
 horariosexstand = []
 function diaatual() {//fazer o input date mostrar a escala conforme o dia do computador
@@ -286,4 +286,9 @@ function finalizar(){
 
 
 
+}
+
+function deletar(){
+    localStorage.removeItem('horariosexstand')
+    localStorage.removeItem('horariosstand')
 }

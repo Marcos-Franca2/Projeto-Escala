@@ -5,12 +5,11 @@ html, body {
 form{
     display:block;
     padding:10sx;
-    border:1px solid #CCC;
     border-radius:3px;
 }
 table{
-    width: 50%;
-    border-collapse: collapse;
+    width: 60%;
+
 }
 table a {
     display:block;
