@@ -11,7 +11,8 @@ function organizar() {
     horariosstand.forEach(element => {
         diadasemana1 = `${element.diadasemana}`
         document.getElementById("diadasemana").innerHTML = ` <div class = dia><p>  ${diadasemana1}   </p></div> `
-    })
+        
+      })
 
     let horarios = ''
     horariosstand.sort(function (a, b) { // oraganizando por criterio de horarios 
@@ -30,7 +31,7 @@ function organizar() {
     {
         horarios += `<tr>
         <td id="ta1">
-            ${element.hora}
+            <input id = "horario-onibus" type = "text" value = "${element.hora}" </input>
         </td>
         
         <td id="ta1">
@@ -38,14 +39,21 @@ function organizar() {
         </td>
 
         <td id="ta2">
-        <b>${element.motorista}</b>
-
+        <input id = "motorista-onibus" type = "text" value = "${element.motorista}" </input>
         </td>
         </tr> 
         `
 
 
     });
+
+    /*        <td id="ta2">
+    <b>${element.motorista}</b>
+     </td>
+    </tr> 
+    ALTERAÇÃO FEITA PARA QUE PUDESSE EDITAR AS INFORAÇÕES DEPOIS DE ECALADA*/
+
+
     document.getElementById("hora").innerHTML = horarios
 
     horariosexstand.sort(function (a, b) {
@@ -62,16 +70,17 @@ function organizar() {
     horariosexstand.forEach(element => {
         horariosEx += `<tr>
         <td id="ta1">
-            ${element.hora}
+          
+            <input id = "horario-onibus" type = "text" value = "${element.hora}" </input>
         </td>
         
         <td id="ta1">
-        ${element.tipo}
+        <input id = "motorista-onibus" type = "text" value = "${element.tipo}" </input>
         </td>
 
         <td id="ta2">
-       <b> ${element.motorista} </b>
-
+      
+       <input id = "motorista-onibus" type = "text" value = "${element.motorista}" </input>
         </td>
         </tr> 
         `
