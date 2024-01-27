@@ -108,3 +108,15 @@ else {
 }
 
 window.diadasemana = " "
+
+
+function enviarFormulario() {
+    // Aqui você pode adicionar lógica para processar o formulário, enviar dados, etc.
+
+    // Resetando os valores do formulário
+    document.getElementById("meuFormulario").reset();
+    // Impedindo o envio padrão do formulário
+    return false;
+  }
+
+  

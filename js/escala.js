@@ -1,25 +1,23 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var inputDate = document.getElementById('date');
+    
+    // Obter a data atual no formato YYYY-MM-DD
+    var dataAtual = new Date().toISOString().split('T')[0];
+
+    // Definir o valor do input para a data atual
+    inputDate.value = dataAtual;
+
+myFunction()
+  });
 
 escalarex()
 horariosexstand = []
-function diaatual() {//fazer o input date mostrar a escala conforme o dia do computador
-    var data = new Date();
-    var dia = String(data.getDate()).padStart(2, '0');
-    var mes = String(data.getMonth() + 1).padStart(2, '0');
-    var ano = data.getFullYear();
-    var dataAtual = ano + '-' + mes + '-' + dia;
-    document.getElementById("date").value = dataAtual
-    var date = document.getElementById("date").value
-    var date1 = new Date(`${date}`)
-    date2 = date1.getDay()
-    listarMotoristasEscalas()
-
-}
 
 function myFunction() { //Coletando dia da semana selecionado
     date = document.getElementById("date").value
     date1 = new Date(`${date}`)
     date2 = date1.getDay()
-    console.log(date2)
+    console.log(date)
     listarMotoristasEscalas()
 }
 

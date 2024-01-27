@@ -14,11 +14,15 @@
     </nav>
     
     <div class = "inputs">
+        
         <div id="cadastro-hora">
-            <input type="time" name="nova-hora" id="nova-hora" >
-            <input type="button" value="Cadastrar novo horario" onclick="cadatrarnovohorario()">
-            <input type="button" value="Apagar horario" onclick="apagarhorario()">
+            <form id="meuFormulario">
+                <input type="time" name="nova-hora" id="nova-hora" required>
+                <input type="button" value="Cadastrar novo horario" onclick="cadatrarnovohorario(),enviarFormulario()">
+                <input type="button" value="Apagar horario" onclick="apagarhorario()">
+            </form>
         </div>
+         
     </div>
     
     <div class = "dias-da-semana">

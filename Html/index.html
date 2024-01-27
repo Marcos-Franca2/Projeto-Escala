@@ -21,14 +21,16 @@
     <div class="principal">
         <div class="dados">
             <div class="input">
-                <input type="text" placeholder="Nome motorista" id="nome-motorista">
-            </div>
-            <div class="input">
-                <input type="number" placeholder="Matricula" id="matricula">
+                <form class="input" onsubmit="enviarFormulario()">
+                    <input type="text" placeholder="Nome motorista" id="nome-motorista"required>
+        
+                    <input type="number" placeholder="Matricula" id="matricula"required>
+                
             </div>
             <div>
                 <button id="btn-cadastro" onclick="cadastrarMotorista()">Cadastrar Motorista</button>
             </div>
+               </form>
         </div>
            
     </div>

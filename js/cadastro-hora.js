@@ -58,6 +58,7 @@ function cadatrarnovohorario() { // funcao onde cadastra novos horarios nos loca
     else {  
         return
     }
+    
 }
 
 function apagarhorario(){ // funcao qua apaga horarios selecionado atravez das checkbox dos seu respctivos local storages 
