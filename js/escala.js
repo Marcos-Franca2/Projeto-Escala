@@ -26,13 +26,17 @@ function listarMotoristasEscalas() {
     listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados os organizando por matricula
     let htmlLista = ''
     listaMotorista.forEach(element => {
-        htmlLista += `
-        <div class = "container">
-            <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
-            <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
-            <div class = "namemot"><b>Nome: </b>${element.nomeMotorista} </div>
-        </div>
-        `
+        
+            element.nomeMotorista.includes("-")
+            var basic =  element.nomeMotorista.replace("-", " ")
+            htmlLista += `
+            <div class = "container">
+                <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
+                <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
+                <div class = "namemot"><b>Nome: </b>${basic} </div>
+            </div>
+            `
+
         document.getElementById('listaMotorista').innerHTML = htmlLista
 
     })
@@ -138,8 +142,11 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
 
     let checkboxes = document.querySelectorAll(`input[class = "teste"]:checked`); // localizar os motoristas selecionados 
     let moto = []
-    checkboxes.forEach((checkbox) => {
-        moto.push(checkbox.name);
+    checkboxes.forEach((element) => {
+        var espaco =  element.name.replace("-", " ")
+        moto.push(espaco);
+        console.log(moto)
+      
     });
 if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length !=0){ // nao avancar caso o usuario nao tenha selecionado um horario e um motorista 
     // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )

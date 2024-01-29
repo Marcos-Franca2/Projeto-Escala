@@ -1,32 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Input Tipo Date com Data Atual</title>
+    <!-- ... (seu cabeçalho permanece inalterado) ... -->
 </head>
+
 <body>
+    <!-- ... (seu corpo HTML permanece inalterado) ... -->
 
-  <h1>Input Tipo Date com Data Atual</h1>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var inputDate = document.getElementById('date');
 
-  <form>
-    <label for="dataAtual">Data Atual:</label>
-    <input type="date" id="dataAtual">
+            // Obter a data atual no formato YYYY-MM-DD
+            var dataAtual = new Date().toISOString().split('T')[0];
 
-    <input type="submit" value="Enviar">
-  </form>
+            // Definir o valor do input para a data atual
+            inputDate.value = dataAtual;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var inputDate = document.getElementById('dataAtual');
-      
-      // Obter a data atual no formato YYYY-MM-DD
-      var dataAtual = new Date().toISOString().split('T')[0];
+            myFunction();
+            escalarex();
+            listarMotoristasEscalas();
+        });
 
-      // Definir o valor do input para a data atual
-      inputDate.value = dataAtual;
-    });
-  </script>
+        // ... (seu código permanece inalterado) ...
 
+        function escalarex() {
+            // ... (seu código para escalarex permanece inalterado) ...
+
+            if (horaex.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length != 0) {
+                // ... (seu código permanece inalterado) ...
+                
+                if (horax.length == 1) {
+                    // ... (seu código permanece inalterado) ...
+                } else {
+                    var horarioescalado = `
+                        <div class="escalados">
+                            <input type="checkbox" class="horaescalad" id="${horario}" name="${motorista}">
+                            <label for="${horario}" class="btn">${horario} = ${motorista}</label>
+                        </div>`;
+
+                    horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana: `${diadasemana}` });
+                    localStorage.setItem(`horariosstand`, JSON.stringify(horariosstand));
+
+                    document.getElementById('horarioe').innerHTML += horarioescalado;
+                }
+
+                document.getElementById('horariosNEscalados').innerHTML = h1;
+                listarMotoristasEscalas(); // Atualiza a lista de motoristas após a escala
+            } else {
+                return;
+            }
+        }
+
+        // ... (seu código permanece inalterado) ...
+    </script>
+    
+    <!-- ... (seus scripts permanecem inalterados) ... -->
 </body>
+
 </html>

@@ -14,11 +14,14 @@ function cadastrarMotorista(){ // funcao criada para o cadastro do novos motoris
         alert("Matricula já cadastada. Verifique e tente novamente.")
         return
     }
-    let objMotirista = {nomeMotorista: nomeMotorista, matricula: matricula}
+   
+    let objMotirista = {nomeMotorista: nomeMotorista, matricula: matricula};
+
+        objMotirista = { nomeMotorista: objMotirista.nomeMotorista.replace(/ /g, "-"), matricula: matricula};
+        console.log(objMotirista);
     listaMotorista.push(objMotirista);
-    localStorage.setItem("listaMotorista", JSON.stringify(listaMotorista))
-    listarMotoristas()  
-    console.log(nomeMotorista)
+    localStorage.setItem("listaMotorista", JSON.stringify(listaMotorista));
+    listarMotoristas()  ;
 }
 }
 
@@ -26,12 +29,19 @@ function listarMotoristas() { // funcao que exibe os motoristas na tela do usuar
     listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula))
     let htmlLista = ''
     listaMotorista.forEach(element => {
+       
+        if (element.nomeMotorista.includes("-")){
+            var exibir = element.nomeMotorista.replace("-", " ")
+ 
+        } 
+    
         htmlLista += `
         <div class = "container">
             <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
-            <div class = "namemot"><b>Nome: </b>${element.nomeMotorista} </div>
+            <div class = "namemot"><b>Nome: </b>${exibir} </div>
         </div>
         ` 
+        
     }); 
     document.getElementById('listaMotorista').innerHTML = htmlLista
 }
