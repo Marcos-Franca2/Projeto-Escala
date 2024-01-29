@@ -11,7 +11,7 @@ function cadastrarMotorista(){ // funcao criada para o cadastro do novos motoris
     if(existe.length > 0)
     
     {
-        alert("Matricula já cadastada. Verifique e tente novamente.")
+        alert("Matricula já cadastrada. Verifique e tente novamente.")
         return
     }
    

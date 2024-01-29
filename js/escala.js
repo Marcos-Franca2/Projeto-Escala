@@ -17,7 +17,6 @@ function myFunction() { //Coletando dia da semana selecionado
     date = document.getElementById("date").value
     date1 = new Date(`${date}`)
     date2 = date1.getDay()
-    console.log(date)
     listarMotoristasEscalas()
 }
 
