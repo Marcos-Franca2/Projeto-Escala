@@ -1,4 +1,4 @@
-- Coisa a fazer Projeto
+*** Coisa a fazer Projeto
 
 - Organizar nomes de variaveis e DIVS 
 
@@ -11,11 +11,11 @@
 - FAZER OS HORARIOS EM STAND BY FICAREM AMARRADOS AS ESCALAS JA FEITAS 
     DIA FEITO ARMAZENAR ESCALAS JA FEITAS PARA CONSULTA
 
-- todos os motoristas escalados independete de como escrito seu nome deve ser salvo em caixa alta.
-
 - não deixar salvar nomes nem matriculas iniciando ou finalizndo com espaço em branco .
 
 SOLUCIONADOS :
+- todos os motoristas escalados independete de como escrito seu nome deve ser salvo em caixa alta. SOLUCIONADO :)
+
 corrigir bugs ( quando seleiona e escala não some). SOLUCIONADO :)
 
 Deixar editavel os horarios e motoristas na tela deimpressão. SOLUCIONADO :)
