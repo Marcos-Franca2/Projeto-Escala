@@ -34,8 +34,10 @@ function listarMotoristas() { // funcao que exibe os motoristas na tela do usuar
         var exibir = element.nomeMotorista.split("-").join(" ")
         htmlLista += `
         <div class = "container">
+        <input type="checkbox" class = "select-moto" id = ${element.matricula} name = ${element.name}>
             <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
             <div class = "namemot"><b>Nome: </b>${exibir} </div>
+        </input>    
         </div>
         ` 
         
@@ -43,3 +45,17 @@ function listarMotoristas() { // funcao que exibe os motoristas na tela do usuar
     document.getElementById('listaMotorista').innerHTML = htmlLista
 }
 console.log(listaMotorista)
+
+function apagarmotorista(){ // funcao qua apaga horarios selecionado atravez das checkbox dos seu respctivos local storages 
+    let motoselect =document.querySelectorAll(`input[class = "select-moto"]:checked`);
+    for (var i = 0 ; i<motoselect.length; i++){
+        checkbox = motoselect[i];
+        if(checkbox.checked){
+            checkbox.parentNode.remove(checkbox);
+            listaMotorista = JSON.parse(localStorage.getItem("listaMotorista"));
+            listaMotorista = listaMotorista.filter(x => x.matricula != motoselect[i].id);
+            localStorage.setItem("listaMotorista", JSON.stringify(listaMotorista));
+            
+        }
+    }
+}
