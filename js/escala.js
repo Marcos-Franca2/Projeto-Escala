@@ -22,12 +22,20 @@ function myFunction() { //Coletando dia da semana selecionado
 
 
 function listarMotoristasEscalas() {
+    if(listaMotorista.length === 0 ){
+        let htmlLista = '';
+
+        document.getElementById('listaMotorista').innerHTML = htmlLista
+    }
+    else{
+
+    
     listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados os organizando por matricula
     let htmlLista = ''
     listaMotorista.forEach(element => {
-        
+            
             element.nomeMotorista.includes("-")
-            var basic =  element.nomeMotorista.replace("-", " ")
+            var basic =  element.nomeMotorista.split("-").join(" ")
             htmlLista += `
             <div class = "container">
                 <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
@@ -38,7 +46,8 @@ function listarMotoristasEscalas() {
 
         document.getElementById('listaMotorista').innerHTML = htmlLista
 
-    })
+    })}
+
     let h1 = ''
     // prenchendo horarios de acordo com o dia da semana escolhido e armazanando a string em um scopo global para que possamos usar ela novamente na proxima tela
     // variavel date2 recebe um valor de 0 a 6 coletados atraves da funcao My function para mostrar o dia escolhido e o armazenar em uma variavel de nome unico para ser mais facil manusea-la
@@ -91,7 +100,7 @@ function listarMotoristasEscalas() {
 function escalarex() { // funcao acionado atravez do botao escalar onde o objetivo dela e coletar as checkbox selecionadas dos horarios EXTRA adicionados manualmente para jogar em uma nova key do local storage 
     // existem duas keys novas que separam os horarios padroes dos dias que sao adicionados nao tela de cadastro de horas e uma para os horarios EXTRAS adicionados manualmente na hora de fazer a escala
     var horaex = document.getElementById('hora').value
-    var tipoex = document.getElementById('tipoex').value
+    var tipoex = document.getElementById('tipoex').value.toUpperCase()
     if (horaex == "" || tipoex == "") {
         let horaExtra = ''
         listahorariosex.forEach(element => {
@@ -142,9 +151,9 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
     let checkboxes = document.querySelectorAll(`input[class = "teste"]:checked`); // localizar os motoristas selecionados 
     let moto = []
     checkboxes.forEach((element) => {
-        var espaco =  element.name.replace("-", " ")
+        var espaco =  element.name.split("-").join(" ")
         moto.push(espaco);
-        console.log(moto)
+        
       
     });
 if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length !=0){ // nao avancar caso o usuario nao tenha selecionado um horario e um motorista 
@@ -205,13 +214,29 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
     let idselect = [] // remover os motoristas ja escalados
     checkboxes.forEach((checkbox) => {
         idselect.push(checkbox.id);
+        
     });
-    var idclean = idselect.pop()
+   if(idselect.length < listaMotorista.length){ 
+    while (idselect.length > 0 ){
+    var idclean = idselect.pop();
     var index = listaMotorista.map(x => {
-        return x.matricula;
+        return x.matricula
     }).indexOf(idclean);
+    listaMotorista.splice(index, 1);}
+    console.log(listaMotorista)
 
-    listaMotorista.splice(index, 1);
+}
+else 
+{
+    var del = listaMotorista.length
+    var idclean = idselect.pop();
+    var index = listaMotorista.map(x => {
+        return x.matricula
+    }).indexOf(idclean);
+    listaMotorista = [];
+listarMotoristasEscalas()
+}
+
     // removido motoristas escalados
 
 
@@ -272,7 +297,7 @@ function apagar() {
     let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`) // caso o usuario se arrependa d ter escalado o horario EXTRA ele pode simplesmente apaga lo e fazelos retornar ao local storage
     for (var i = 0; i < horaselect3.length; i++) {
         checkbox3 = horaselect3[i]
-        console.log(checkbox3)
+        
     }
     var removido = checkbox3.id
     var removido2 = checkbox3.name

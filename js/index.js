@@ -2,8 +2,9 @@
 listarMotoristas()
 
 function cadastrarMotorista(){ // funcao criada para o cadastro do novos motoristas 
-    let nomeMotorista = document.getElementById('nome-motorista').value
+    let nomeMotorista = document.getElementById('nome-motorista').value.trim()
     let matricula = document.getElementById('matricula').value
+
     let existe = listaMotorista.filter(x => x.matricula == matricula)
     if (nomeMotorista.trim() === "" || matricula.trim() === "")
     return false
@@ -15,7 +16,7 @@ function cadastrarMotorista(){ // funcao criada para o cadastro do novos motoris
         return
     }
    
-    let objMotirista = {nomeMotorista: nomeMotorista, matricula: matricula};
+    let objMotirista = {nomeMotorista: nomeMotorista.toUpperCase(), matricula: matricula};
 
         objMotirista = { nomeMotorista: objMotirista.nomeMotorista.replace(/ /g, "-"), matricula: matricula};
         console.log(objMotirista);
@@ -30,11 +31,7 @@ function listarMotoristas() { // funcao que exibe os motoristas na tela do usuar
     let htmlLista = ''
     listaMotorista.forEach(element => {
        
-        if (element.nomeMotorista.includes("-")){
-            var exibir = element.nomeMotorista.replace("-", " ")
- 
-        } 
-    
+        var exibir = element.nomeMotorista.split("-").join(" ")
         htmlLista += `
         <div class = "container">
             <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
