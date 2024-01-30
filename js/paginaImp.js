@@ -47,12 +47,6 @@ function organizar() {
 
     });
 
-    /*        <td id="ta2">
-    <b>${element.motorista}</b>
-     </td>
-    </tr> 
-    ALTERAÇÃO FEITA PARA QUE PUDESSE EDITAR AS INFORAÇÕES DEPOIS DE ECALADA*/
-
 
     document.getElementById("hora").innerHTML = horarios
 
