@@ -1,14 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var inputDate = document.getElementById('date');
-    
+
     // Obter a data atual no formato YYYY-MM-DD
     var dataAtual = new Date().toISOString().split('T')[0];
 
     // Definir o valor do input para a data atual
     inputDate.value = dataAtual;
 
-myFunction()
-  });
+    myFunction()
+});
 
 escalarex()
 horariosexstand = []
@@ -22,20 +22,20 @@ function myFunction() { //Coletando dia da semana selecionado
 
 
 function listarMotoristasEscalas() {
-    if(listaMotorista.length === 0 ){
+    if (listaMotorista.length === 0) {
         let htmlLista = '';
 
         document.getElementById('listaMotorista').innerHTML = htmlLista
     }
-    else{
+    else {
 
-    
-    listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados os organizando por matricula
-    let htmlLista = ''
-    listaMotorista.forEach(element => {
-            
+
+        listaMotorista.sort((a, b) => Number(a.matricula) - Number(b.matricula)) // Preencher a caixa com os motoristas cadastrados os organizando por matricula
+        let htmlLista = ''
+        listaMotorista.forEach(element => {
+
             element.nomeMotorista.includes("-")
-            var basic =  element.nomeMotorista.split("-").join(" ")
+            var basic = element.nomeMotorista.split("-").join(" ")
             htmlLista += `
             <div class = "container">
                 <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
@@ -44,9 +44,10 @@ function listarMotoristasEscalas() {
             </div>
             `
 
-        document.getElementById('listaMotorista').innerHTML = htmlLista
+            document.getElementById('listaMotorista').innerHTML = htmlLista
 
-    })}
+        })
+    }
 
     let h1 = ''
     // prenchendo horarios de acordo com o dia da semana escolhido e armazanando a string em um scopo global para que possamos usar ela novamente na proxima tela
@@ -82,18 +83,18 @@ function listarMotoristasEscalas() {
     else {
         document.getElementById('horariosNEscalados').innerHTML = h1
     }
-    horaRet = window.dia.filter(x=> x.horaR); // separando os horario de retorno dos comuns
-    window.dia = window.dia.filter(x=> x.hora); // Preencher a caixa de horarios com os horarios cadastrados
+    horaRet = window.dia.filter(x => x.horaR); // separando os horario de retorno dos comuns
+    window.dia = window.dia.filter(x => x.hora); // Preencher a caixa de horarios com os horarios cadastrados
     window.dia.sort((a, b) => {
         const horaA = a.hora.split(':').map(Number);
         const horaB = b.hora.split(':').map(Number);
-      
+
         if (horaA[0] !== horaB[0]) {
-          return horaA[0] - horaB[0];
+            return horaA[0] - horaB[0];
         } else {
-          return horaA[1] - horaB[1];
+            return horaA[1] - horaB[1];
         }
-      });
+    });
     window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
         h1 += `<div class= "test1">
     <input type="checkbox" class = "teste1" id=${element.hora}
@@ -176,95 +177,96 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
     let checkboxes = document.querySelectorAll(`input[class = "teste"]:checked`); // localizar os motoristas selecionados 
     let moto = []
     checkboxes.forEach((element) => {
-        var espaco =  element.name.split("-").join(" ")
+        var espaco = element.name.split("-").join(" ")
         moto.push(espaco);
-        
-      
+
+
     });
-if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length !=0){ // nao avancar caso o usuario nao tenha selecionado um horario e um motorista 
-    // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
-    if (horax.length == 1) {
-        var horarioescalado = []
-        var horaextra = String(horax)
-        var tipoextra = String(tag)
-        var motoristaextra = String(moto)
+    if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length != 0) { // nao avancar caso o usuario nao tenha selecionado um horario e um motorista 
+        // definindo qual horario foi selecionado (horario EXTRAORDINADO ou nao )
+        if (horax.length == 1) {
+            var horarioescalado = []
+            var horaextra = String(horax)
+            var tipoextra = String(tag)
+            var motoristaextra = String(moto)
 
 
-        horarioescalado += `<div class = "leo"> 
+            horarioescalado += `<div class = "leo"> 
         <input type="checkbox" class = "horaescalad" id=${horaextra} name=${motoristaextra}>
         <label for=${horaextra}" class="btn">${horaextra} / ${tipoextra} = ${motoristaextra}</label>
 
         </div>`
 
-        horariosexstand.push({ hora: `${horaextra}`, tipo: `${tipoextra}`, motorista: `${motoristaextra}` })
-        localStorage.setItem(`horariosexstand`, JSON.stringify(horariosexstand))
+            horariosexstand.push({ hora: `${horaextra}`, tipo: `${tipoextra}`, motorista: `${motoristaextra}` })
+            localStorage.setItem(`horariosexstand`, JSON.stringify(horariosexstand))
 
-        let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
+            let horaselect2 = document.querySelectorAll(`input[class = "horaex"]:checked`)
 
-        for (var i = 0; i < horaselect2.length; i++) { // quando um horario e selecionado ele e temporariamente apagado da tela 
-            checkbox2 = horaselect2[i]
-            if (checkbox2.checked) {
-                checkbox2.parentNode.remove(checkbox2);
-                horaexselect = JSON.parse(localStorage.getItem("listahorariosex"))
-                horaexselect = horaexselect.filter(x => x.hora != horaselect2[i].id)
-                localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
+            for (var i = 0; i < horaselect2.length; i++) { // quando um horario e selecionado ele e temporariamente apagado da tela 
+                checkbox2 = horaselect2[i]
+                if (checkbox2.checked) {
+                    checkbox2.parentNode.remove(checkbox2);
+                    horaexselect = JSON.parse(localStorage.getItem("listahorariosex"))
+                    horaexselect = horaexselect.filter(x => x.hora != horaselect2[i].id)
+                    localStorage.setItem("listahorariosex", JSON.stringify(horaexselect))
 
+                }
             }
+
+
+
         }
+        else {
+            var horarioescalado = []
+            var horario = String(radiobox)
+            var motorista = String(moto)
+            var horarioretorno = String(horaR)
+            if (horarioretorno !== "") {
 
 
-
-    }
-    else {
-        var horarioescalado = []
-        var horario = String(radiobox)
-        var motorista = String(moto)
-        var horarioretorno = String(horaR)
-        if(horarioretorno !== ""){
-
-        
-        horarioescalado += `<div class = "escalados"> 
+                horarioescalado += `<div class = "escalados"> 
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
         <label for=${horario}" class="btn">${horario}  = ${motorista} (retono ${horarioretorno})</label>
 
 
      </div>`
-        }
-        else{
-            horarioescalado += `<div class = "escalados"> 
+            }
+            else {
+                horarioescalado += `<div class = "escalados"> 
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
         <label for=${horario}" class="btn">${horario}  = ${motorista})</label> `
             }
 
-     horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana : `${diadasemana}`, horaR: `${horarioretorno}` })
-     localStorage.setItem(`horariosstand`, JSON.stringify(horariosstand))
+            horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana: `${diadasemana}`, horaR: `${horarioretorno}` })
+            localStorage.setItem(`horariosstand`, JSON.stringify(horariosstand))
 
-    }
-
-
+        }
 
 
-    document.getElementById('horarioe').innerHTML += horarioescalado // Listando motoristas Escalados
 
-    let idselect = [] // remover os motoristas ja escalados
-    checkboxes.forEach((checkbox) => {
-        idselect.push(checkbox.id);
-        
-    });
-   if(idselect.length < listaMotorista.length){ 
-    while (idselect.length > 0 ){
-    var idclean = idselect.pop();
-    var index = listaMotorista.map(x => {
-        return x.matricula
-    }).indexOf(idclean);
-    listaMotorista.splice(index, 1);}
-    console.log(listaMotorista)
-    let htmlLista = ''
-listaMotorista.forEach(element => {
-        
-        element.nomeMotorista.includes("-")
-        var basic =  element.nomeMotorista.split("-").join(" ")
-        htmlLista += `
+
+        document.getElementById('horarioe').innerHTML += horarioescalado // Listando motoristas Escalados
+
+        let idselect = [] // remover os motoristas ja escalados
+        checkboxes.forEach((checkbox) => {
+            idselect.push(checkbox.id);
+
+        });
+        if (idselect.length < listaMotorista.length) {
+            while (idselect.length > 0) {
+                var idclean = idselect.pop();
+                var index = listaMotorista.map(x => {
+                    return x.matricula
+                }).indexOf(idclean);
+                listaMotorista.splice(index, 1);
+            }
+            console.log(listaMotorista)
+            let htmlLista = ''
+            listaMotorista.forEach(element => {
+
+                element.nomeMotorista.includes("-")
+                var basic = element.nomeMotorista.split("-").join(" ")
+                htmlLista += `
         <div class = "container">
             <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
             <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
@@ -272,72 +274,99 @@ listaMotorista.forEach(element => {
         </div>
         `
 
-    document.getElementById('listaMotorista').innerHTML = htmlLista
-})
+                document.getElementById('listaMotorista').innerHTML = htmlLista
+            })
 
-}
-else 
-{
-    var idclean = idselect.pop();
-    var index = listaMotorista.map(x => {
-        return x.matricula
-    }).indexOf(idclean);
-    listaMotorista = [];
-    document.getElementById('listaMotorista').innerHTML = ""
+        }
+        else {
+            var idclean = idselect.pop();
+            var index = listaMotorista.map(x => {
+                return x.matricula
+            }).indexOf(idclean);
+            listaMotorista = [];
+            document.getElementById('listaMotorista').innerHTML = ""
 
-}
+        }
 
-    // removido motoristas escalados
+        // removido motoristas escalados
 
 
-    let horaselect = [] //remover horarios de rotina escalados 
-    if (horax.length == 1) {
-        horariox.forEach((checkbox) => {
-            horaselect.push(checkbox.id);
+        let horaselect = [] //remover horarios de rotina escalados 
+        if (horax.length == 1) {
+            horariox.forEach((checkbox) => {
+                horaselect.push(checkbox.id);
+            });
+            var horaCerta = horaselect.pop()
+            var horarioselecionado = listahorariosex.map(x => {
+                return x.hora
+            }).indexOf(horaCerta);
+
+
+            listahorariosex.splice(horarioselecionado, 1);
+
+        }
+        else {
+            radioselect.forEach((checkbox) => {
+                horaselect.push(checkbox.id);
+            });
+
+            var horaCerta = horaselect.pop()
+            var horarioselecionado = window.dia.map(x => {
+                return x.hora
+            }).indexOf(horaCerta);
+
+
+            window.dia.splice(horarioselecionado, 1);
+            console.log(window.dia)
+
+
+            let horaRselect = []
+
+            horarioR.forEach((checkbox) => {
+                horaRselect.push(checkbox.id);
+            });
+
+            var horaRCerta = horaRselect.pop()
+            var horarioRselecionado = horaRet.map(x => {
+                return x.horaR
+            }).indexOf(horaRCerta);
+
+
+            horaRet.splice(horarioRselecionado, 1);
+            console.log(horaRet)
+
+
+        }
+        h2 = ""
+        horaRet.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
+            h2 += `<div class= "testeR">
+    <input type="checkbox" class = "testeRet" id=${element.horaR}
+    <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
+    </div>
+    `
         });
-        var horaCerta = horaselect.pop()
-        var horarioselecionado = listahorariosex.map(x => {
-            return x.hora
-        }).indexOf(horaCerta);
+        document.getElementById('horariosderetorno').innerHTML = h2
 
-
-        listahorariosex.splice(horarioselecionado, 1);
-
-    }
-    else {
-        radioselect.forEach((checkbox) => {
-            horaselect.push(checkbox.id);
-        });
-
-        var horaCerta = horaselect.pop()
-        var horarioselecionado = window.dia.map(x => {
-            return x.hora
-        }).indexOf(horaCerta);
-
-
-        window.dia.splice(horarioselecionado, 1);
-        console.log(window.dia)
-
-   }
-    h1 = ""
-    window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
-        h1 += `<div class= "test1">
+        h1 = ""
+        window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
+            h1 += `<div class= "test1">
     <input type="checkbox" class = "teste1" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
     </div>
     `
-    });
-    document.getElementById('horariosNEscalados').innerHTML = h1
+        });
+        document.getElementById('horariosNEscalados').innerHTML = h1
 
-    
-    // removido horarios escalados 
 
-    escalarex()
- //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
-}
+
+        // removido horarios escalados 
+
+        escalarex()
+        //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
+    }
     else {
-    return
-}
+        return
+    }
 
 
 }
@@ -360,29 +389,29 @@ function apagar() {
     let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`) // caso o usuario se arrependa d ter escalado o horario EXTRA ele pode simplesmente apaga lo e fazelos retornar ao local storage
     for (var i = 0; i < horaselect3.length; i++) {
         checkbox3 = horaselect3[i]
-        
+
     }
     var removido = checkbox3.id
     var removido2 = checkbox3.name
     console.log(removido2)
-    const result = horariosexstand.find(({ hora , motorista }) => hora === `${removido}` && motorista === `${removido2}`)
+    const result = horariosexstand.find(({ hora, motorista }) => hora === `${removido}` && motorista === `${removido2}`)
     listahorariosex.push({ hora: `${result.hora}`, tipo: `${result.tipo}`, motorista: `${result.motorista}` })
     localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
 
 
 }
 
-function finalizar(){ // funcao criada para armazenar a string que dia o dia que foi feita a escala para usarmos na tela de impressao 
+function finalizar() { // funcao criada para armazenar a string que dia o dia que foi feita a escala para usarmos na tela de impressao 
     var dataselect = document.getElementById("date").value
     var datacorreta = dataselect.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-    diafeito.push({data : `${datacorreta}`})
+    diafeito.push({ data: `${datacorreta}` })
     localStorage.setItem(`diafeito`, JSON.stringify(diafeito))
 
 
 
 }
 
-function deletar(){ // funcao que apaga as key do local storage para podemos recomecar uma nova escala e ela nao ficar somando com a antiga 
+function deletar() { // funcao que apaga as key do local storage para podemos recomecar uma nova escala e ela nao ficar somando com a antiga 
     localStorage.removeItem('horariosexstand')
     localStorage.removeItem('horariosstand')
 }
