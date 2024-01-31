@@ -1,8 +1,18 @@
 function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados para o dia selecionado 
-    window.diaselect = dia
+    window.diaselect = dia;
 
     let h1 = `<div class = "diadasemana"> <h3><b>Escala de ${dia}</b></h3> </div>`
     nomeDiaSelecionado = JSON.parse(localStorage.getItem(window.diaselect))
+    nomeDiaSelecionado.sort((a, b) => {
+        const horaA = a.hora.split(':').map(Number);
+        const horaB = b.hora.split(':').map(Number);
+      
+        if (horaA[0] !== horaB[0]) {
+          return horaA[0] - horaB[0];
+        } else {
+          return horaA[1] - horaB[1];
+        }
+      });
     nomeDiaSelecionado.forEach(element => {
         h1 += `<div class= "test1">
     <input type="checkbox" class = "teste1" id=${element.hora}
