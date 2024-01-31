@@ -82,7 +82,8 @@ function listarMotoristasEscalas() {
     else {
         document.getElementById('horariosNEscalados').innerHTML = h1
     }
-
+    horaRet = window.dia.filter(x=> x.horaR);
+    window.dia = window.dia.filter(x=> x.hora);
     window.dia.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
 
     window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 

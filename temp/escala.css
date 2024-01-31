@@ -28,7 +28,7 @@ body {
 input[type="date"]{
   background-color: #1eaef1;
   padding: 15px;
-  position: absolute;
+  position: relative;
   font-family: "Roboto Mono",monospace;
   color: #fff;
   font-size: 18px;
