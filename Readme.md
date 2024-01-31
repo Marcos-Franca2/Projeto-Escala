@@ -6,10 +6,12 @@
 
 -   FAZER OS HORARIOS EM STAND BY FICAREM AMARRADOS AS ESCALAS JA FEITAS 
     DIA FEITO ARMAZENAR ESCALAS JA FEITAS PARA CONSULTA.
-- não esta cadastrando novo horarios
+
 
 
 SOLUCIONADOS :
+- não esta cadastrando novo horarios. SOLUCIONADO :)
+
 - todos os motoristas escalados independete de como escrito seu nome deve ser salvo em caixa alta. SOLUCIONADO :)
 
 corrigir bugs ( quando seleiona e escala não some). SOLUCIONADO :)
