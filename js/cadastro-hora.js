@@ -14,8 +14,14 @@ function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados par
           return horaA[1] - horaB[1];
         }
       });
-
-
+    let h2 = `<div class = "diadasemana"> <h3><b>Escala de Retorno ${dia}</b></h3> </div>`
+      horar.forEach(element => {
+        h2 += `<div class= "test2">
+    <input type="checkbox" class = "teste1" id=${element.horaR}
+    <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
+    </div>
+    `
+      })
 
     nomeDiaSelecionado = nomeDiaSelecionado.filter(x=> x.hora)// separando os horarios de ida dos de retorno 
     nomeDiaSelecionado.sort((a, b) => {
@@ -36,8 +42,8 @@ function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados par
     `
     })
 
-    document.getElementById('padrao-dia').innerHTML = h1
-
+    document.getElementById('padrao-dia').innerHTML = h1;
+    document.getElementById('retorno-dia').innerHTML = h2;
 }
 
 function cadatrarnovohorario() { // funcao onde cadastra novos horarios nos local storages dependando dos dias selecionados
@@ -46,7 +52,7 @@ function cadatrarnovohorario() { // funcao onde cadastra novos horarios nos loca
         return
     }
     if (diaselect === "Segunda-feira") { // diaselect e coletado da funcao mostrar horarios pois quando clicamos no dia o botao dretorna um valor para a funcao
-        segundafeira.push({ hora: `${novaHora}` })
+        segundafeira.push({ horaR: `${novaHora}` })
         localStorage.setItem(`${diaselect}`, JSON.stringify(segundafeira))
         mostrarhorarios(diaselect)
     }

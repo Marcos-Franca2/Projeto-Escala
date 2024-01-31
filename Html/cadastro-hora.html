@@ -19,6 +19,7 @@
             <form id="meuFormulario">
                 <input type="time" name="nova-hora" id="nova-hora" required>
                 <input type="button" value="Cadastrar novo horario" onclick="cadatrarnovohorario(),enviarFormulario()">
+                <input type="button" value="Cadastrar novo horario Retorno" onclick="cadatrarnovohorario(),enviarFormulario()">
                 <input type="button" value="Apagar horario" onclick="apagarhorario()">
             </form>
         </div>
@@ -35,10 +36,18 @@
         <input id= "domingo" type="button" value="Domingo"onclick = "mostrarhorarios(this.value)">
     </div>
 
-    <div id ="padrao-dia">
-        <div id="select-day">
+    <div class="escalas">
+        <div id ="padrao-dia">
+            <div id="select-day">
+            </div>
+        </div>
+        <div id ="retorno-dia">
+            <div id="select-day">
+            </div>
         </div>
     </div>
+    
+
     
 </body>
 <script src="../js/cadastro-hora.js"></script>
