@@ -82,10 +82,18 @@ function listarMotoristasEscalas() {
     else {
         document.getElementById('horariosNEscalados').innerHTML = h1
     }
-    horaRet = window.dia.filter(x=> x.horaR);
-    window.dia = window.dia.filter(x=> x.hora);
-    window.dia.sort((a, b) => Number(a.hora) - Number(b.hora)) // Preencher a caixa de horarios com os horarios cadastrados
-
+    horaRet = window.dia.filter(x=> x.horaR); // separando os horario de retorno dos comuns
+    window.dia = window.dia.filter(x=> x.hora); // Preencher a caixa de horarios com os horarios cadastrados
+    window.dia.sort((a, b) => {
+        const horaA = a.hora.split(':').map(Number);
+        const horaB = b.hora.split(':').map(Number);
+      
+        if (horaA[0] !== horaB[0]) {
+          return horaA[0] - horaB[0];
+        } else {
+          return horaA[1] - horaB[1];
+        }
+      });
     window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
         h1 += `<div class= "test1">
     <input type="checkbox" class = "teste1" id=${element.hora}
@@ -93,7 +101,16 @@ function listarMotoristasEscalas() {
     </div>
     `
     });
+    let h2 = ""
 
+    horaRet.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
+        h2 += `<div class= "testeR">
+    <input type="checkbox" class = "testeRet" id=${element.horaR}
+    <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
+    </div>
+    `
+    });
+    document.getElementById('horariosderetorno').innerHTML = h2
     document.getElementById('horariosNEscalados').innerHTML = h1
 }
 
@@ -149,6 +166,13 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
         radiobox.push(checkbox.id);
     });
 
+    let horarioR = document.querySelectorAll(`input[class = "testeRet"]:checked`); //localizar os horarios selecionados
+    let horaR = []
+    horarioR.forEach((checkbox) => {
+        horaR.push(checkbox.id);
+    });
+
+
     let checkboxes = document.querySelectorAll(`input[class = "teste"]:checked`); // localizar os motoristas selecionados 
     let moto = []
     checkboxes.forEach((element) => {
@@ -195,14 +219,24 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
         var horarioescalado = []
         var horario = String(radiobox)
         var motorista = String(moto)
+        var horarioretorno = String(horaR)
+        if(horarioretorno !== ""){
 
+        
         horarioescalado += `<div class = "escalados"> 
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
-        <label for=${horario}" class="btn">${horario}  = ${motorista}</label>
+        <label for=${horario}" class="btn">${horario}  = ${motorista} (retono ${horarioretorno})</label>
 
 
      </div>`
-     horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana : `${diadasemana}` })
+        }
+        else{
+            horarioescalado += `<div class = "escalados"> 
+        <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
+        <label for=${horario}" class="btn">${horario}  = ${motorista})</label> `
+            }
+
+     horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana : `${diadasemana}`, horaR: `${horarioretorno}` })
      localStorage.setItem(`horariosstand`, JSON.stringify(horariosstand))
 
     }
@@ -225,30 +259,45 @@ if (horax.length != 0 && moto.length != 0 || radiobox.length != 0 && moto.length
     }).indexOf(idclean);
     listaMotorista.splice(index, 1);}
     console.log(listaMotorista)
+    let htmlLista = ''
+listaMotorista.forEach(element => {
+        
+        element.nomeMotorista.includes("-")
+        var basic =  element.nomeMotorista.split("-").join(" ")
+        htmlLista += `
+        <div class = "container">
+            <input type="checkbox" class = "teste" id=${element.matricula} name=${element.nomeMotorista}>
+            <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
+            <div class = "namemot"><b>Nome: </b>${basic} </div>
+        </div>
+        `
+
+    document.getElementById('listaMotorista').innerHTML = htmlLista
+})
 
 }
 else 
 {
-    var del = listaMotorista.length
     var idclean = idselect.pop();
     var index = listaMotorista.map(x => {
         return x.matricula
     }).indexOf(idclean);
     listaMotorista = [];
-listarMotoristasEscalas()
+    document.getElementById('listaMotorista').innerHTML = ""
+
 }
 
     // removido motoristas escalados
 
 
-    let horaselect = [] //remover horarios escalados 
+    let horaselect = [] //remover horarios de rotina escalados 
     if (horax.length == 1) {
         horariox.forEach((checkbox) => {
             horaselect.push(checkbox.id);
         });
         var horaCerta = horaselect.pop()
         var horarioselecionado = listahorariosex.map(x => {
-            return x.hora;
+            return x.hora
         }).indexOf(horaCerta);
 
 
@@ -262,16 +311,29 @@ listarMotoristasEscalas()
 
         var horaCerta = horaselect.pop()
         var horarioselecionado = window.dia.map(x => {
-            return x.hora;
+            return x.hora
         }).indexOf(horaCerta);
 
 
         window.dia.splice(horarioselecionado, 1);
-    }
+        console.log(window.dia)
+
+   }
+    h1 = ""
+    window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
+        h1 += `<div class= "test1">
+    <input type="checkbox" class = "teste1" id=${element.hora}
+    <div class = "hora" ><b>Horario: </b>${element.hora} </div>
+    </div>
+    `
+    });
+    document.getElementById('horariosNEscalados').innerHTML = h1
+
+    
     // removido horarios escalados 
 
     escalarex()
-    listarMotoristasEscalas() //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
+ //listar novamente os motoristas porem agora removendo os motoristas ja escalados 
 }
     else {
     return

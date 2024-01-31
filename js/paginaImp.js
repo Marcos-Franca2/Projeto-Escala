@@ -39,7 +39,7 @@ function organizar() {
         </td>
 
         <td id="ta2">
-        <input id = "motorista-onibus" type = "text" value = "${element.motorista}" </input>
+        <input id = "motorista-onibus" type = "text" value = "${element.motorista} (Retorno ${element.horaR})" </input>
         </td>
         </tr> 
         `
