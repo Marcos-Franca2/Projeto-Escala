@@ -52,7 +52,7 @@ function cadatrarnovohorario() { // funcao onde cadastra novos horarios nos loca
         return
     }
     if (diaselect === "Segunda-feira") { // diaselect e coletado da funcao mostrar horarios pois quando clicamos no dia o botao dretorna um valor para a funcao
-        segundafeira.push({ horaR: `${novaHora}` })
+        segundafeira.push({ hora: `${novaHora}` })
         localStorage.setItem(`${diaselect}`, JSON.stringify(segundafeira))
         mostrarhorarios(diaselect)
     }
@@ -91,6 +91,54 @@ function cadatrarnovohorario() { // funcao onde cadastra novos horarios nos loca
     }
     
 }
+
+
+function cadatrarnovohorarioretono() { // funcao onde cadastra novos horarios nos local storages dependando dos dias selecionados
+    let novaHora = document.getElementById('nova-hora').value
+    if (novaHora === "" || undefined) { 
+        return
+    }
+    if (diaselect === "Segunda-feira") { // diaselect e coletado da funcao mostrar horarios pois quando clicamos no dia o botao dretorna um valor para a funcao
+        segundafeira.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(segundafeira))
+        mostrarhorarios(diaselect)
+    }
+    if (diaselect === "Terça-Feira") {
+        tercafeira.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(tercafeira))
+        mostrarhorarios(diaselect)
+    }
+    if (diaselect === "Quarta-Feira") {
+        quartafeira.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(quartafeira))
+        mostrarhorarios(diaselect)
+    }
+    if (diaselect === "Quinta-Feira") {
+        quintafeira.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(quintafeira))
+        mostrarhorarios(diaselect)
+    }
+    if (diaselect === "Sexta-Feira") {
+        sextafeira.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(sextafeira))
+        mostrarhorarios(diaselect)
+    }
+    if (diaselect === "Sabado") {
+        sabado.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(sabado))
+        mostrarhorarios(diaselect)
+    }
+    if (diaselect === "Domingo") {
+        domingo.push({ horaR: `${novaHora}` })
+        localStorage.setItem(`${diaselect}`, JSON.stringify(domingo))
+        mostrarhorarios(diaselect)
+    }
+    else {  
+        return
+    }
+    
+}
+
 
 function apagarhorario(){ // funcao qua apaga horarios selecionado atravez das checkbox dos seu respctivos local storages 
     let horaselect =document.querySelectorAll(`input[class = "teste1"]:checked`);
