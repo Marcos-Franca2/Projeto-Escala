@@ -1,7 +1,7 @@
 function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados para o dia selecionado 
     window.diaselect = dia;
 
-    let h1 = `<div class = "diadasemana"> <h3><b>Escala de ${dia}</b></h3> </div>`
+    let h1 = `<div class = "dia-semana"> <h3><b>Escala de ${dia}</b></h3> </div>`
     nomeDiaSelecionado = JSON.parse(localStorage.getItem(window.diaselect))
     horar = nomeDiaSelecionado.filter(x=> x.horaR) // separando os horarios de retorno cadastrados no mesmo local storage.
     horar.sort((a, b) => { //organizndo os horarios por ondem
@@ -14,10 +14,10 @@ function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados par
           return horaA[1] - horaB[1];
         }
       });
-    let h2 = `<div class = "diadasemana"> <h3><b>Escala de Retorno ${dia}</b></h3> </div>`
+    let h2 = `<div class = "dia-semana"> <h3><b>Escala de Retorno ${dia}</b></h3> </div>`
       horar.forEach(element => {
-        h2 += `<div class= "test2">
-    <input type="checkbox" class = "teste1" id=${element.horaR}
+        h2 += `<div class= "checkbox-retono">
+    <input type="checkbox" class = "hora-retorno" id=${element.horaR}
     <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
     </div>
     `
@@ -35,8 +35,8 @@ function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados par
         }
       });
     nomeDiaSelecionado.forEach(element => {
-        h1 += `<div class= "test1">
-    <input type="checkbox" class = "teste1" id=${element.hora}
+        h1 += `<div class= "checkbox-hora">
+    <input type="checkbox" class = "hora-retorno" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
     </div>
     `
@@ -141,7 +141,7 @@ function cadatrarnovohorarioretono() { // funcao onde cadastra novos horarios no
 
 
 function apagarhorario(){ // funcao qua apaga horarios selecionado atravez das checkbox dos seu respctivos local storages 
-    let horaselect =document.querySelectorAll(`input[class = "teste1"]:checked`);
+    let horaselect =document.querySelectorAll(`input[class = "hora-retorno"]:checked`);
     for (var i = 0 ; i<horaselect.length; i++){
         checkbox = horaselect[i];
         if(checkbox.checked){

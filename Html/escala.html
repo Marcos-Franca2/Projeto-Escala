@@ -13,12 +13,12 @@
     <div class="container-escala">
         <div class="cabecalho">
             <div>
-                <p><input type="date" name="date" id="date" onchange="myFunction()"></p>
+                <p><input type="date" name="date" id="date" onchange="colectDay()"></p>
             </div>
-            <form class="horarioex">
+            <form class="add-horario">
                 <input class = "form-submit-button" type="time" name="hora" id="hora">
                 <input class = "input-text" type="text" name="tipoex" placeholder="Add Horarios Extraordinarios" id="tipoex">
-                <input class = "form-submit-button" type="reset" value="Incluir" onclick = "escalarex()">
+                <input class = "form-submit-button" type="reset" value="Incluir" onclick = "escalarhoraextra()">
                 <input class = "form-submit-button" type="button" value="Escalar" onclick="escalar()">
                 <input class = "form-submit-button" type="button" value="Remover" onclick="apagar()">
             </form>
@@ -29,11 +29,11 @@
             </div>
         </div>
         <div class = "container-horario">
-            <div class="horario">
+            <div class="lista-motorista">
                 <h1>Motorista nao escalados</h1>
                 <div class="lista" id="listaMotorista"> </div>
             </div>
-            <div class="horario2">
+            <div class="horario-n-escalado">
                 <h1>Horarios nao escalados</h1>
                 <div id = horariosNEscalados></div>
                 <div> 
@@ -42,13 +42,13 @@
                 </div> 
                 <div id = horariosExNEscalados> </div>
             </div>
-            <div class="horarioR">
+            <div class="hora-retorno">
                 <h1>Horarios de Retorno</h1>
                 <div id = horariosderetorno></div>
             </div>
-            <div class="horario">
+            <div class="lista-motorista">
                 <h1>Motoristas Escalados</h1>
-                <div id="horarioe"></div>
+                <div id="hora-escalada"></div>
             </div>
         </div>
         <div class="horarios">

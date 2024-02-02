@@ -81,7 +81,7 @@ function organizar() {
         
 
     });
-    document.getElementById("horaex").innerHTML = horariosEx
+    document.getElementById("horario-extra").innerHTML = horariosEx
 
 
 }
