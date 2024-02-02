@@ -8,12 +8,12 @@ form{
     border-radius:3px;
 }
 table{
-    width: 60%;
+    width: 90%;
 
 }
 table a {
     display:block;
-    padding:4px;
+    padding: 4px;
 }
 th, td{
     border:1px solid #ccc;
@@ -35,13 +35,22 @@ td input{
     align-items: center;
 }
 #ta1{
-    width: 20%;
+    width: 15%;
     text-align: center;
     align-items: center;
 }
-
 #ta2{
+    width: 25%;
+    text-align: center;
+    align-items: center; 
+}
+
+#ta3{
+    width: 50%;
     padding: 0 0 0 5px;
+    text-align: left;
+    align-items: left;
+
 }
 
 .t1{    
@@ -100,4 +109,12 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+#textdata {
+    width: 5%;
+}
+#diadasemana{
+    text-align: start ;
+    padding-left: 8px
+    
 }

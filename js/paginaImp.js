@@ -34,11 +34,11 @@ function organizar() {
             <input id = "horario-onibus" type = "text" value = "${element.hora}" </input>
         </td>
         
-        <td id="ta1">
+        <td id="ta2">
         <input id = "numero-onibus" type = "text" value = "" </input>
         </td>
 
-        <td id="ta2">
+        <td id="ta3">
         <input id = "motorista-onibus" type = "text" value = "${element.motorista} (Retorno ${element.horaR})" </input>
         </td>
         </tr> 

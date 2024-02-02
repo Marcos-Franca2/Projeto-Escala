@@ -128,7 +128,12 @@ input[type="date"]{
     padding: 15px;
     color: white;
 }
-
+.horarioR {
+    border: solid 1px;
+    background-color: rgba(43, 44, 44, 0.555);
+    padding: 15px;
+    color: white;
+}
 .container-horario {
     display: flex;
     justify-content: space-between;
@@ -181,6 +186,15 @@ input[type="date"]{
     padding: 5px;
     margin-left: 8px;
 
+}
+.testeR:hover{
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+.testeR{
+    border: solid 1px;
+    padding: 5px;
+    margin-left: 8px;
 }
 #horariosExNEscalados {
     margin-top: 20px;

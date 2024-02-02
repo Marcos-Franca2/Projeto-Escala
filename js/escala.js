@@ -234,7 +234,7 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
             else {
                 horarioescalado += `<div class = "escalados"> 
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
-        <label for=${horario}" class="btn">${horario}  = ${motorista})</label> `
+        <label for=${horario}" class="btn">${horario}  = ${motorista}</label> `
             }
 
             horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana: `${diadasemana}`, horaR: `${horarioretorno}` })
