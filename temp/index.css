@@ -102,6 +102,7 @@ nav{
     border-radius: 20px;
 }
 .menu{
+
     margin: 10px 3px;
 }
 .menu a{
@@ -119,7 +120,7 @@ nav{
     font-size: 15px;
     font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
     text-decoration: none;
-    vertical-align: middle;
+    vertical-align:middle;
 }
 
 .container {

@@ -38,9 +38,11 @@ function listarMotoristasEscalas() {
             var basic = element.nomeMotorista.split("-").join(" ")
             htmlLista += `
             <div class = "container">
+                <label>
                 <input type="checkbox" class = "motorista-select" id=${element.matricula} name=${element.nomeMotorista}>
                 <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
                 <div class = "namemot"><b>Nome: </b>${basic} </div>
+                </label>
             </div>
             `
 
@@ -97,8 +99,10 @@ function listarMotoristasEscalas() {
     });
     window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
         h1 += `<div class= "hora-disponivel">
+        <label>
     <input type="checkbox" class = "horario-disponivel" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
+         </label>
     </div>
     `
     });
@@ -106,8 +110,10 @@ function listarMotoristasEscalas() {
 
     horaRet.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
         h2 += `<div class= "horario-retorno">
+        <label>
     <input type="checkbox" class = "checkbox-retornos" id=${element.horaR}
     <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
+        </label>
     </div>
     `
     });
@@ -124,9 +130,11 @@ function escalarhoraextra() { // funcao acionado atravez do botao escalar onde o
         let horaExtra = ''
         listahorariosex.forEach(element => {
             horaExtra += `<div class= "style-checkbox">
+            <label>
             <input type="checkbox" class = "input-horaextra" id=${element.hora} name=${element.tipo}>
             <div class = "horaex2" ><b>Horario: </b>${element.hora} <br>
             <b> Tipo Escala: </b> ${element.tipo} </div>
+            </label>
             </div>
             `
         })
@@ -140,9 +148,11 @@ function escalarhoraextra() { // funcao acionado atravez do botao escalar onde o
         let horaExtra = ''
         listahorariosex.forEach(element => {
             horaExtra += `<div class= "style-checkbox">
+            <label>
         <input type="checkbox" class = "input-horaextra" id=${element.hora} name=${element.tipo}>
         <div class = "horaex2" ><b>Horario: </b>${element.hora} </div>
         <div class = "tipoe" ><b> Tipo Escala: </b> ${element.tipo} </div>
+            </label>
         </div>
         `
         })
@@ -176,9 +186,10 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
 
     let checkboxes = document.querySelectorAll(`input[class = "motorista-select"]:checked`); // localizar os motoristas selecionados 
     let moto = []
+    let espaco
     checkboxes.forEach((element) => {
-        var espaco = element.name.split("-").join(" ")
-        moto.push(espaco);
+        espaco = element.name.split("-").join(" ")
+        moto.push(element.name);
 
 
     });
@@ -192,9 +203,10 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
 
 
             horarioescalado += `<div class = "checkbox-escalados"> 
+            <label>
         <input type="checkbox" class = "horaescalad" id=${horaextra} name=${motoristaextra}>
-        <label for=${horaextra}" class="btn">${horaextra} / ${tipoextra} = ${motoristaextra}</label>
-
+        <label for=${horaextra}" class="btn">${horaextra} / ${tipoextra} = ${espaco}</label>
+            </label>
         </div>`
 
             horariosexstand.push({ hora: `${horaextra}`, tipo: `${tipoextra}`, motorista: `${motoristaextra}` })
@@ -225,16 +237,20 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
 
 
                 horarioescalado += `<div class = "escalados"> 
+                <label>
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
         <label for=${horario}" class="btn">${horario}  = ${motorista} (retono ${horarioretorno})</label>
-
-
-     </div>`
+                </label>
+                                     </div>`
             }
             else {
                 horarioescalado += `<div class = "escalados"> 
+                <label>
         <input type="checkbox" class = "horaescalad" id=${horario} name=${motorista}>
-        <label for=${horario}" class="btn">${horario}  = ${motorista}</label> `
+        <label for=${horario}" class="btn">${horario}  = ${motorista}</label> 
+                </label>
+                </div>`
+                
             }
 
             horariosstand.push({ hora: `${horario}`, motorista: `${motorista}`, diadasemana: `${diadasemana}`, horaR: `${horarioretorno}` })
@@ -268,9 +284,11 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
                 var basic = element.nomeMotorista.split("-").join(" ")
                 htmlLista += `
         <div class = "container">
+        <label>
             <input type="checkbox" class = "motorista-select" id=${element.matricula} name=${element.nomeMotorista}>
             <div class = "linha" ><b>Matricula: </b>${element.matricula} </div>
             <div class = "namemot"><b>Nome: </b>${basic} </div>
+        </label>
         </div>
         `
 
@@ -340,8 +358,10 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
         h2 = ""
         horaRet.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
             h2 += `<div class= "horario-retorno">
+            <label>
     <input type="checkbox" class = "checkbox-retornos" id=${element.horaR}
     <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
+            </label>
     </div>
     `
         });
@@ -350,8 +370,10 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
         h1 = ""
         window.dia.forEach(element => { // para cada elemento dentro do local storage onde armazenamos as horas e feito uma pequena tag html para estilizar e adicionar uma nova checkbox 
             h1 += `<div class= "hora-disponivel">
+            </label>
     <input type="checkbox" class = "horario-disponivel" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
+        </label>
     </div>
     `
         });
@@ -373,8 +395,33 @@ function escalar() {  //funcao que coleta os dados de todas as checkbox selecion
 
 function apagar() {
     // remover horarios extras escalados do local storage 
-    let horaselect2 = document.querySelectorAll(`input[class = "input-horaextra"]:checked`)
+    let horaselect3 = document.querySelectorAll(`input[class="horaescalad"]:checked`);
 
+    if (horaselect3.length > 0) {
+
+        for (var i = 0; i < horaselect3.length; i++) {
+            checkbox3 = horaselect3[i]
+            if (checkbox3.checked) {
+                checkbox3.parentNode.remove(checkbox3);
+                apagarhora = JSON.parse(localStorage.getItem("horariosexstand"))
+                apagarhora = horariosexstand.filter(x => x.hora != removido)
+                localStorage.setItem("horariosexstand", JSON.stringify(apagarhora))
+            
+
+        for (var i = 0; i < horaselect3.length; i++) {
+            var checkbox3 = horaselect3[i];
+            var removido = String(checkbox3.id);
+            var removido2 = checkbox3.name;
+
+            const result = horariosexstand.find(({ hora , motorista }) => hora === `${removido}` && motorista === `${removido2}`);
+            if (result) {
+                listahorariosex.push({ hora: `${result.hora}`, tipo: `${result.tipo}`, motorista: `${result.motorista}` });
+            }
+        }
+        localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex));
+            }}
+    }
+        let horaselect2 = document.querySelectorAll(`input[class = "input-horaextra"]:checked`) 
     for (var i = 0; i < horaselect2.length; i++) {
         checkbox2 = horaselect2[i]
         if (checkbox2.checked) {
@@ -386,17 +433,7 @@ function apagar() {
         }
     }
 
-    let horaselect3 = document.querySelectorAll(`input[class = "horaescalad"]:checked`) // caso o usuario se arrependa d ter escalado o horario EXTRA ele pode simplesmente apaga lo e fazelos retornar ao local storage
-    for (var i = 0; i < horaselect3.length; i++) {
-        checkbox3 = horaselect3[i]
 
-    }
-    var removido = checkbox3.id
-    var removido2 = checkbox3.name
-    console.log(removido2)
-    const result = horariosexstand.find(({ hora, motorista }) => hora === `${removido}` && motorista === `${removido2}`)
-    listahorariosex.push({ hora: `${result.hora}`, tipo: `${result.tipo}`, motorista: `${result.motorista}` })
-    localStorage.setItem(`listahorariosex`, JSON.stringify(listahorariosex))
 
 
 }

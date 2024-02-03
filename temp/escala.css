@@ -206,7 +206,7 @@ input[type="date"]{
     transform: scale(1.01);
 }
 
-input[type=checkbox]+label.btn {
+input[type=checkbox].btn {
     padding: 5px 10px;
     margin: 5px 10px;
     display: inline-block;

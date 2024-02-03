@@ -16,10 +16,10 @@ function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados par
       });
     let h2 = `<div class = "dia-semana"> <h3><b>Escala de Retorno ${dia}</b></h3> </div>`
       horar.forEach(element => {
-        h2 += `<div class= "checkbox-retono">
+        h2 += `<label class= "checkbox-retono">
     <input type="checkbox" class = "hora-retorno" id=${element.horaR}
     <div class = "hora" ><b>Horario: </b>${element.horaR} </div>
-    </div>
+    </label>
     `
       })
 
@@ -35,10 +35,10 @@ function mostrarhorarios(dia) { // funcao que mostra os horarios cadastrados par
         }
       });
     nomeDiaSelecionado.forEach(element => {
-        h1 += `<div class= "checkbox-hora">
+        h1 += `<label class= "checkbox-hora">
     <input type="checkbox" class = "hora-retorno" id=${element.hora}
     <div class = "hora" ><b>Horario: </b>${element.hora} </div>
-    </div>
+    </label>
     `
     })
 

@@ -8,21 +8,21 @@ O correto seria uma div oculta que ao clicar no menu, tu mostrasse ele.
 
 ##-----------------------------------------------------------------------------------------------------------##
 ## CÓDIGO RUIM ## 
-1 - Sei que é um código seu, massss evite brincar (filhodobil)
+1 - Sei que é um código seu, massss evite brincar (filhodobil) corrigido 
 
-2 - Depois que o projeto estiver pronto, evite deixar console.log no código
+2 - Depois que o projeto estiver pronto, evite deixar console.log no código 
 
 3 - a função cadastrarMotorista está fazendo duas funções. Cadastrando e consultando motoristas.
 Evite fazer duas coisas em uma única função, pois dessa forma ela não poderá ser reaproveitada em uma tela
-que de fato tu queira apenas cadastrar.
+que de fato tu queira apenas cadastrar. corrigido 
 
-4 A função cadatrarnovohorario() está uma loucura rsrs
- 5 - NUNCA myFunction()
+4 A função cadatrarnovohorario() está uma loucura rsrs organizado do jeito que consigo
+ 5 - NUNCA myFunction() corrigido 
 
 6 - horaselect2, horariox, horax, radioselect,radiobox ETC. Horrivel para entender e dar manutenção no código.
-as variáveis genéricas só fazendo debug para entender de fato o que está ocorrendo nesse miolo.
+as variáveis genéricas só fazendo debug para entender de fato o que está ocorrendo nesse miolo. corrigido 
 
-7 - Tem muita bagunça no código. Talvez pegar um dia para bater um papo.
+7 - Tem muita bagunça no código. Talvez pegar um dia para bater um papo. ainda sem conhecimento para consrguir fazer isso 
 
 ##-----------------------------------------------------------------------------------------------------------##
 ## BELEZA ##
